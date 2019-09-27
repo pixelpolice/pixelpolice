@@ -1,0 +1,14 @@
+{
+  "urls": ["http://localhost:8080/test.html"],
+  "propertyValues": {
+    "borderTopColor": ["#000000", "#FFFFFF"],
+    "borderRightColor": ["#000000", "#FFFFFF"],
+    "borderLeftColor": ["#000000", "#FFFFFF"],
+    "borderBottomColor": ["#000000", "#FFFFFF"],
+    "color": ["#000000","#FFFFFF","#EB5F8E","#72B72A","#35ADCE","#FCC31E","#AE0D21","#007349","#00528A","#EA5B25","#666666","#D0D0D0","#F5F5F5","#ECECEC","transparent"],
+    "paddingTop": ["2px","4px","8px","16px","24px","48px"],
+    "paddingRight": ["2px","4px","8px","16px","24px","48px"],
+    "paddingLeft": ["2px","4px","8px","16px","24px","48px"],
+    "paddingBottom": ["2px","4px","8px","16px","24px","48px"]
+  }
+}

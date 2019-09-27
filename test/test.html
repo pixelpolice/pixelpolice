@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>test page</title>
+    <link rel="stylesheet" href="test.css">
+    <style>
+      html body h1 {
+        color: green;
+        font-size:10vmin;
+        padding: 8px 16px;
+      }
+
+      html body h2 {
+        padding: 123px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1 id="h1" style="color:yellow">Look at me</h1>
+    <h2 id="h2">Look at me</h2>
+  </body>
+
+  <script>
+      const elements = () => {
+        // const nodes = document.querySelectorAll('*');
+        let report = [];
+
+        document.querySelectorAll('*').forEach(function(node) {
+          let displayId =  node.id.length !== 0 ? `#${node.id}` : ''
+          let displayClassList = node.classList.length !== 0 ?  `.${node.classList.value.replace(' ', '.')}` : '';
+          let computedStyle = getComputedStyle(node);
+
+          report.push({
+            "identifier": node.localName + displayId + displayClassList,
+            "computedStyle": computedStyle
+          });
+
+          // console.log('*****')
+          // console.log(computedStyle)
+          // console.log(node);
+        });
+
+        return report;
+        // return getMatchedCSSRules(document.querySelectorAll('h1')[0])
+      };
+
+
+    things = elements();
+
+
+      // things.forEach((el) => {
+      //   console.log(el.computedStyle);
+      // })
+
+      console.log(getComputedStyle(document.getElementById('h1')));
+  </script>
+</html>

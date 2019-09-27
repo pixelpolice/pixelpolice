@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "serve": "http-server ./test",
+    "lint:js": "eslint -c config/eslint/base.json './scripts/**/*.js' './config/**/*.js' --ignore-path config/eslint/.eslintignore",
+    "lint:js:fix": "eslint -c config/eslint/base.json './scripts/**/*.js' --ignore-path config/eslint/.eslintignore --fix",
+    "pixelpolice": "node scripts/main.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,19 @@
   "bugs": {
     "url": "https://github.com/pixelpolice/pixelpolice/issues"
   },
-  "homepage": "https://github.com/pixelpolice/pixelpolice#readme"
+  "homepage": "https://github.com/pixelpolice/pixelpolice#readme",
+  "dependencies": {
+    "puppeteer": "^1.19.0",
+    "rgb": "^0.1.0"
+  },
+  "devDependencies": {
+    "eslint": "6.4.0",
+    "eslint-config-standard": "14.1.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-node": "10.0.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "4.0.1",
+    "http-server": "^0.11.1",
+    "jest": "^24.9.0"
+  }
 }

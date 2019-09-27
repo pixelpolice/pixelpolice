@@ -1,0 +1,21 @@
+body #h1#h1,
+body #h2#h2 {
+  color: purple;
+}
+
+h1,h2 {
+  color: blue;
+  width: 100%;
+}
+
+h1,h2 {
+  color: #000a !important;
+  font-size: 5em;
+}
+
+
+@media (min-width: 400px) {
+  h1,h2 {
+    color: orange;
+  }
+}
