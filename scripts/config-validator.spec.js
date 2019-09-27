@@ -37,6 +37,15 @@ describe('configValidator', () => {
     expect(configValidator.validate(config)).toBeTruthy()
   })
 
+  test('validator passes with allowed transparent color', () => {
+    config = {
+      propertyValues: {
+        color: ['transparent']
+      }
+    }
+    expect(configValidator.validate(config)).toBeTruthy()
+  })
+
   test('validator passes with allowed rgb and rgba colors', () => {
     config = {
       propertyValues: {

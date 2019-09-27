@@ -22,8 +22,10 @@ const configToRGBA = (colorArr) => {
       convertedColors.push(hexToRGBA(color))
     } else if (color.startsWith('rgb')) {
       convertedColors.push(color)
+    } else if (color === 'transparent') {
+      convertedColors.push('rgba(0, 0, 0, 0)')
     } else {
-      throw new Error("Invalid color")
+      throw new Error(`${color} is invalid`)
     }
   })
 

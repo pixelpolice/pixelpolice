@@ -4,6 +4,7 @@ const units = {
 }
 
 const allowedPropertiesAndUnits = {
+  backgroundColor: units.color,
   borderTopColor: units.color,
   borderLeftColor: units.color,
   borderBottomColor: units.color,

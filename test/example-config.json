@@ -1,6 +1,7 @@
 {
   "urls": ["http://localhost:8080/test.html"],
   "propertyValues": {
+    "backgroundColor": ["#000000", "#FFFFFF"],
     "borderTopColor": ["#000000", "#FFFFFF"],
     "borderRightColor": ["#000000", "#FFFFFF"],
     "borderLeftColor": ["#000000", "#FFFFFF"],

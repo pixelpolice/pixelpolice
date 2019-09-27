@@ -13,8 +13,9 @@ if (configValidator.validate(config) !== true) {
 
 // const propertyValuesToBeTested = ['color', 'paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft']
 
-const colorConfigRGBA = color.colorConfigToRGBA(config.propertyValues.color);
-const borderTopColorConfigRGBA = color.colorConfigToRGBA(config.propertyValues.borderTopColor);
+const colorConfigRGBA = color.configToRGBA(config.propertyValues.color);
+const backgroundColorConfigRGBA = color.configToRGBA(config.propertyValues.backgroundColor);
+const borderTopColorConfigRGBA = color.configToRGBA(config.propertyValues.borderTopColor);
 
 (async () => {
   const browser = await puppeteer.launch({ headless: false })
@@ -36,6 +37,7 @@ const borderTopColorConfigRGBA = color.colorConfigToRGBA(config.propertyValues.b
 
       const computedStyleTrimmed = {
         identifier: node.localName + identifierId + identifierClassList,
+        backgroundColor: allComputedStyles.backgroundColor,
         borderTopColor: allComputedStyles.borderTopColor,
         color: allComputedStyles.color,
         paddingTop: allComputedStyles.paddingTop,
@@ -61,8 +63,9 @@ const borderTopColorConfigRGBA = color.colorConfigToRGBA(config.propertyValues.b
     console.log(el.identifier)
 
     const colorResult = color.test(el.color, colorConfigRGBA)
-    const borderColorResult = color.test(el.borderTopColor, colorConfigRGBA)
-    const paddingResult = padding.paddingTest(el.paddingTop, config.propertyValues.paddingTop)
+    const backgroundColorResult = color.test(el.backgroundColor, backgroundColorConfigRGBA)
+    const borderColorResult = color.test(el.borderTopColor, borderTopColorConfigRGBA)
+    const paddingResult = padding.test(el.paddingTop, config.propertyValues.paddingTop)
 
     console.log(`\n - Color test passed = ${colorResult}`)
 
