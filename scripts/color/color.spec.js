@@ -20,21 +20,33 @@ describe('hexToRGBA', () => {
 
 describe('color configToRGBA', () => {
   test('passing colour test', () => {
-    colorsToConvert = ['rgba(0, 0, 0, 123)', 'rgb(0, 0, 0)', '#FFF', '#1234', '#FFFFFF']
+    const colorsToConvert = ['rgba(0, 0, 0, 123)', 'rgb(0, 0, 0)', '#FFF', '#1234', '#FFFFFF']
     expect(color.configToRGBA(colorsToConvert)).toStrictEqual(['rgba(0, 0, 0, 123)', 'rgb(0, 0, 0)', 'rgb(255, 255, 255)', 'rgba(17, 34, 51, 0.265625)', 'rgb(255, 255, 255)'])
   })
 })
 
 describe('Color test', () => {
   test('passing colour test', () => {
-    computedColor = 'rgb(0, 0, 0)'
-    allowedColorsNormalised = ['rgb(0, 0, 0)']
+    const computedColor = 'rgb(0, 0, 0)'
+    const allowedColorsNormalised = ['rgb(0, 0, 0)']
     expect(color.test(computedColor, allowedColorsNormalised)).toBeTruthy()
   })
 
+  test('passing colour test when allowing transparent colors', () => {
+    const computedColor = 'rgba(0, 0, 0, 0)'
+    const allowedColorsNormalised = ['rgb(0, 0, 0)']
+    expect(color.test(computedColor, allowedColorsNormalised, true)).toBeTruthy()
+  })
+
   test('fails colour test', () => {
-    computedColor = 'rgb( 0, 0, 0)'
-    allowedColorsNormalised = ['rgb(255, 0, 0)']
+    const computedColor = 'rgb(0, 0, 0)'
+    const allowedColorsNormalised = ['rgb(255, 0, 0)']
+    expect(color.test(computedColor, allowedColorsNormalised)).toBeFalsy()
+  })
+
+  test('fail colour test when not allowing transparent colors', () => {
+    const computedColor = 'rgba(0, 0, 0, 0)'
+    const allowedColorsNormalised = ['rgb(255, 0, 0)']
     expect(color.test(computedColor, allowedColorsNormalised)).toBeFalsy()
   })
 })

@@ -32,8 +32,11 @@ const configToRGBA = (colorArr) => {
   return convertedColors
 }
 
-const test = (computedColor, allowedColorsNormalised) => {
-  const testPassed = allowedColorsNormalised.indexOf(computedColor) !== -1
+const test = (computedColor, allowedColors, allowTransparent) => {
+  if (allowTransparent && computedColor === 'rgba(0, 0, 0, 0)') {
+    return true
+  }
+  const testPassed = allowedColors.indexOf(computedColor) !== -1
   return testPassed
 }
 

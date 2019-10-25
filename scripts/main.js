@@ -1,95 +1,154 @@
 const puppeteer = require('puppeteer')
-const config = require('../test/example-config')
-const configValidator = require('./config-validator.js')
+const chalk = require('chalk')
 const color = require('./color/color')
 const padding = require('./padding/padding')
-// const getMatchedCSSRules = require('./getMatchedCSSRules');
+const outline = require('./outline/outline')
 
-const failedTests = []
+const urlReport = (urlTested, elementsCount, passedTestCount, failedTestCount) => {
+  return `
+==============================================================
 
-if (configValidator.validate(config) !== true) {
-  throw new Error('Invalid config')
+  ${chalk.bgRed.black(' FAIL ')} ${urlTested}
+  Number of elements tested: ${elementsCount}
+  ${chalk.green(`Passed tests: ${passedTestCount}`)}
+  ${chalk.red(`Failed tests: ${failedTestCount}`)}
+
+==============================================================`
 }
 
-// const propertyValuesToBeTested = ['color', 'paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft']
+const elementFailedReport = (identifier, failedMessages, config) => {
+  let messages = ''
+  failedMessages.forEach((message) => {
+    messages = messages + `${chalk.red(`
+● Failed when testing ${chalk.bold(message.property)} property`)}
+    - Observed: ${message.saw}
+    - Expected one of: ${config.propertyValues[message.property]}
+`
+  })
+  return `
+--------------------------------------------------------------
 
-const colorConfigRGBA = color.configToRGBA(config.propertyValues.color);
-const backgroundColorConfigRGBA = color.configToRGBA(config.propertyValues.backgroundColor);
-const borderTopColorConfigRGBA = color.configToRGBA(config.propertyValues.borderTopColor);
+${chalk.bgRed.black(' FAIL ')}
 
-(async () => {
-  const browser = await puppeteer.launch({ headless: false })
-  const page = await browser.newPage()
-  await page.goto('http://localhost:8080/test.html')
-  // await page.goto('https://www.giffgaff.com/spread')
-  // await page.goto('https://giffgaff.com/blog');
-  // await page.goto('https://giffgaff.com/help');
-  // await page.goto('https://giffgaff.com');
+${chalk.red('->')} ${identifier}
+${messages}`
+}
 
-  // Get the "viewport" of the page, as reported by the page.
-  const elements = await page.evaluate(() => {
-    const report = []
+const pixelpolice = (config) => {
+  return new Promise((resolve, reject) => {
+    const url = config.urls[0]
 
-    document.querySelectorAll('body *').forEach(function (node) {
-      const identifierId = node.id.length !== 0 ? `#${node.id}` : ''
-      const identifierClassList = node.classList.length !== 0 ? `.${node.classList.value.replace(' ', '.')}` : ''
-      const allComputedStyles = getComputedStyle(node)
+    const propertiesToBeTested = Object.keys(config.propertyValues)
 
-      const computedStyleTrimmed = {
-        identifier: node.localName + identifierId + identifierClassList,
-        backgroundColor: allComputedStyles.backgroundColor,
-        borderTopColor: allComputedStyles.borderTopColor,
-        color: allComputedStyles.color,
-        paddingTop: allComputedStyles.paddingTop,
-        paddingRight: allComputedStyles.paddingRight,
-        paddingBottom: allComputedStyles.paddingBottom,
-        paddingLeft: allComputedStyles.paddingLeft
-      }
+    let totalPassedTests = 0
+    let totalFailedTests = 0
 
-      // console.log(propertyValuesToBeTested[0])
+    console.log(`\ntesting: ${url}`);
 
-      // propertyValuesToBeTested.forEach((value) => {
-      // console.log(value)
-      // computedStyleTrimmed[value] = allComputedStyles[value]
-      // })
+    (async () => {
+      const browser = await puppeteer.launch({
+        // headless: false,
+        headless: true,
+        defaultViewport: {
+          width: 320,
+          height: 568
+        }
+      })
+      const page = await browser.newPage()
+      await page.goto(url)
 
-      report.push(computedStyleTrimmed)
+      const elements = await page.evaluate((propertiesToBeTested) => {
+        const report = []
+
+        document.querySelectorAll('body *').forEach(function (node) {
+          if (node.localName !== 'script') {
+            const allComputedStyles = getComputedStyle(node)
+            const computedStylesTrimmed = {}
+
+            computedStylesTrimmed.identifier = node.outerHTML.substring(0, 400)
+
+            propertiesToBeTested.forEach((key) => {
+              computedStylesTrimmed[key] = allComputedStyles[key]
+            })
+
+            // console.log(node.outerHTML)
+
+            // console.log(computedStylesTrimmed)
+            report.push(computedStylesTrimmed)
+          }
+        })
+
+        return report
+      }, propertiesToBeTested)
+
+      elements.forEach((el) => {
+        const failedTests = []
+
+        propertiesToBeTested.forEach((property, i) => {
+          let result = ''
+
+          switch (property) {
+            case 'color':
+            case 'borderTopColor':
+            case 'borderRightColor':
+            case 'borderBottomColor':
+            case 'borderLeftColor':
+              result = color.test(el[property], config.propertyValues[property])
+              break
+
+            case 'backgroundColor':
+              result = color.test(el[property], config.propertyValues[property], true)
+              break
+
+            case 'paddingTop':
+            case 'paddingRight':
+            case 'paddingBottom':
+            case 'paddingLeft':
+              result = padding.test(el[property], config.propertyValues[property])
+              break
+
+            case 'outlineColor':
+              result = outline.colorTest(el.outlineColor, el.outlineStyle, config.propertyValues.outlineColor)
+              break
+
+            case 'outlineStyle':
+              result = outline.styleTest(el.outlineStyle, config.propertyValues.outlineStyle)
+              break
+
+            default:
+              console.error(`main js error ${property}`)
+          }
+
+          if (result) {
+            totalPassedTests++
+          } else {
+            totalFailedTests++
+            failedTests.push({
+              property: property,
+              saw: el[property]
+            })
+          }
+        })
+
+        if (failedTests.length) {
+          console.log(elementFailedReport(el.identifier, failedTests, config))
+        }
+      })
+
+      console.log(urlReport(url, elements.length, totalPassedTests, totalFailedTests))
+
+      // debugger;
+      // await page.click('a[target=_blank]');
+
+      await browser.close()
+    })().then(() => {
+      resolve()
     })
-
-    return report
   })
+}
 
-  elements.forEach((el) => {
-    console.log(el.identifier)
-
-    const colorResult = color.test(el.color, colorConfigRGBA)
-    const backgroundColorResult = color.test(el.backgroundColor, backgroundColorConfigRGBA)
-    const borderColorResult = color.test(el.borderTopColor, borderTopColorConfigRGBA)
-    const paddingResult = padding.test(el.paddingTop, config.propertyValues.paddingTop)
-
-    console.log(`\n - Color test passed = ${colorResult}`)
-
-    if (borderColorResult === false) {
-      failedTests.push(`${el.identifier} - borderColorResult test failed`)
-    }
-    if (colorResult === false) {
-      failedTests.push(`${el.identifier} - Color test failed`)
-    }
-    if (paddingResult === false) {
-      failedTests.push(`${el.identifier} - Padding test failed`)
-    }
-
-    // console.log(colorResult);
-
-    console.log('****************')
-  })
-
-  console.log('\n\n\n #####################')
-  console.log(failedTests)
-  console.log('#####################')
-
-  //   debugger;
-  // await page.click('a[target=_blank]');
-
-  await browser.close()
-})()
+module.exports = {
+  pixelpolice,
+  urlReport,
+  elementFailedReport
+}

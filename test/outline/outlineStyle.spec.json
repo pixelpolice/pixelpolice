@@ -1,0 +1,6 @@
+{
+  "urls": ["http://localhost:8080/outline/outlineStyle.spec.html"],
+  "propertyValues": {
+    "outlineStyle" : ["groove"]
+  }
+}

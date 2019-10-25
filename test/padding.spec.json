@@ -1,0 +1,9 @@
+{
+  "urls": ["http://localhost:8080/padding.spec.html"],
+  "propertyValues": {
+    "paddingTop": ["2px", "4px", "8px", "16px"],
+    "paddingRight": ["2px", "4px", "8px", "16px"],
+    "paddingBottom": ["2px", "4px", "8px", "16px"],
+    "paddingLeft": ["2px", "4px", "8px", "16px"]
+  }
+}

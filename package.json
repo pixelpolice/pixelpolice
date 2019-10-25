@@ -5,10 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:single": "jest scripts/padding/padding.spec.js",
     "serve": "http-server ./test",
     "lint:js": "eslint -c config/eslint/base.json './scripts/**/*.js' './config/**/*.js' --ignore-path config/eslint/.eslintignore",
     "lint:js:fix": "eslint -c config/eslint/base.json './scripts/**/*.js' --ignore-path config/eslint/.eslintignore --fix",
-    "pixelpolice": "node scripts/main.js"
+    "pixelpolice": "node bin/cli.js --config ./test/realistic-config.spec.json",
+    "pixelpolice:realistic": "node bin/cli.js --config ./scripts/example-config.json",
+    "pixelpolice:single": "node bin/cli.js --config ./test/outline/outlineColor.spec.json",
+    "pixelpolice:help": "node bin/pixelpolice.js --help"
   },
   "repository": {
     "type": "git",
@@ -21,8 +25,13 @@
   },
   "homepage": "https://github.com/pixelpolice/pixelpolice#readme",
   "dependencies": {
+    "chalk": "^2.4.2",
     "puppeteer": "^1.19.0",
-    "rgb": "^0.1.0"
+    "rgb": "^0.1.0",
+    "yargs": "^14.0.0"
+  },
+  "bin": {
+    "pixelpolice": "cli.js"
   },
   "devDependencies": {
     "eslint": "6.4.0",
