@@ -11,7 +11,7 @@
     "lint:js:fix": "eslint -c config/eslint/base.json './scripts/**/*.js' --ignore-path config/eslint/.eslintignore --fix",
     "pixelpolice": "node bin/cli.js --config ./test/realistic-config.spec.json",
     "pixelpolice:realistic": "node bin/cli.js --config ./scripts/example-config.json",
-    "pixelpolice:single": "node bin/cli.js --config ./test/border/borderColor.spec.json",
+    "pixelpolice:single": "node bin/cli.js --config ./test/font/fontFamily.spec.json",
     "pixelpolice:help": "node bin/pixelpolice.js --help"
   },
   "repository": {

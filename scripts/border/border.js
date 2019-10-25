@@ -6,7 +6,7 @@ const colorTest = (computedBorderColor, computedBorderStyle, computedBorderWidth
   if ((computedBorderStyle === 'none') && (computedBorderWidth = '0px')) { // computedBorderColor only shows if computedBorderStyle and computedBorderWidth has been set
     testPassed = true
   } else {
-    testPassed = color.test(computedBorderColor, allowedBorderColorValues)
+    testPassed = color.test(computedBorderColor, allowedBorderColorValues, true)
   }
 
   return testPassed

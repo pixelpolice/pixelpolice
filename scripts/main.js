@@ -4,6 +4,7 @@ const color = require('./color/color')
 const padding = require('./padding/padding')
 const outline = require('./outline/outline')
 const border = require('./border/border')
+const font = require('./font/font')
 
 const urlReport = (urlTested, elementsCount, passedTestCount, failedTestCount) => {
   return `
@@ -148,6 +149,10 @@ const pixelpolice = (config) => {
 
             case 'outlineStyle':
               result = outline.styleTest(el.outlineStyle, config.propertyValues.outlineStyle)
+              break
+
+            case 'fontFamily':
+              result = font.familyTest(el.fontFamily, config.propertyValues.fontFamily)
               break
 
             default:

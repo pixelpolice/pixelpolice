@@ -1,0 +1,6 @@
+{
+  "urls": ["http://localhost:8080/font/fontFamily.spec.html"],
+  "propertyValues": {
+    "fontFamily": ["Arial"]
+  }
+}

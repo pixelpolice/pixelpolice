@@ -13,7 +13,8 @@ const validateProperties = (config) => {
     'paddingTop',
     'paddingLeft',
     'paddingBottom',
-    'paddingRight'
+    'paddingRight',
+    'fontFamily'
   ]
 
   for (const key of Object.keys(config.propertyValues)) {
