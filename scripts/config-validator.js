@@ -62,27 +62,10 @@ const validatePropertyValues = (config) => {
   return validUnits
 }
 
-const validatePropertyCombinations = (config) => {
-  let validPropertyCombinations = false
-
-  if (Object.prototype.hasOwnProperty.call(config.propertyValues, 'outlineColor')) {
-    if (Object.prototype.hasOwnProperty.call(config.propertyValues, 'outlineStyle')) {
-      validPropertyCombinations = true
-    } else {
-      validPropertyCombinations = false
-      console.error(chalk.red('Config error: outlineColor requires outlineStyle\n'))
-    }
-  } else {
-    validPropertyCombinations = true
-  }
-
-  return validPropertyCombinations
-}
-
 const check = (config) => {
   console.log('\nValidating config file\n')
 
-  if (validateProperties(config) && validatePropertyCombinations(config) && validatePropertyValues(config)) {
+  if (validateProperties(config) && validatePropertyValues(config)) {
     return true
   } else {
     return false

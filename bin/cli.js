@@ -18,29 +18,22 @@ if (configValidator.check(config) !== true) {
 }
 
 const userPropertyValues = config.propertyValues;
+const colourPropertiesToRGBA = [
+  'color',
+  'backgroundColor',
+  'borderTopColor',
+  'borderRightColor',
+  'borderBottomColor',
+  'borderLeftColor',
+  'outlineColor'
+]
 
-if (userPropertyValues.hasOwnProperty('color')) {
-  config.propertyValues.color = color.configToRGBA(userPropertyValues.color)
-}
-
-if (userPropertyValues.hasOwnProperty('backgroundColor')) {
-  config.propertyValues.backgroundColor = color.configToRGBA(userPropertyValues.backgroundColor)
-}
-
-if (userPropertyValues.hasOwnProperty('borderTopColor')) {
-  config.propertyValues.borderTopColor = color.configToRGBA(userPropertyValues.borderTopColor)
-}
-
-if (userPropertyValues.hasOwnProperty('outlineColor')) {
-  config.propertyValues.outlineColor = color.configToRGBA(userPropertyValues.outlineColor)
-}
-
-// colorConfigRGBA.borderTopColor = color.configToRGBA(config.propertyValues.borderTopColor);
-// colorConfigRGBA.borderRightColor = color.configToRGBA(config.propertyValues.borderRightColor);
-// colorConfigRGBA.borderBottomColor = color.configToRGBA(config.propertyValues.borderBottomColor);
-// colorConfigRGBA.borderLeftColor = color.configToRGBA(config.propertyValues.borderLeftColor);
+colourPropertiesToRGBA.forEach(property => {
+  if (userPropertyValues.hasOwnProperty(property)) {
+    config.propertyValues[property] = color.configToRGBA(userPropertyValues[property])
+  }
+})
 
 console.log(config)
-
 
 main.pixelpolice(config)

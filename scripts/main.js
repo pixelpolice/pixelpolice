@@ -3,6 +3,7 @@ const chalk = require('chalk')
 const color = require('./color/color')
 const padding = require('./padding/padding')
 const outline = require('./outline/outline')
+const border = require('./border/border')
 
 const urlReport = (urlTested, elementsCount, passedTestCount, failedTestCount) => {
   return `
@@ -71,9 +72,31 @@ const pixelpolice = (config) => {
               computedStylesTrimmed[key] = allComputedStyles[key]
             })
 
-            // console.log(node.outerHTML)
+            // todo: if the required styles do not exist then they do not need to be tested - ie skip unrequired tests
 
-            // console.log(computedStylesTrimmed)
+            // outlineColor needs outlineStyle to be tested
+            if (propertiesToBeTested.indexOf('outlineColor') !== -1) {
+              computedStylesTrimmed['outlineStyle'] = allComputedStyles['outlineStyle']
+            }
+
+            // borderColor needs borderStyle and borderWidth to be tested
+            if (propertiesToBeTested.indexOf('borderTopColor') !== -1) {
+              computedStylesTrimmed['borderTopStyle'] = allComputedStyles['borderTopStyle']
+              computedStylesTrimmed['borderTopWidth'] = allComputedStyles['borderTopWidth']
+            }
+            if (propertiesToBeTested.indexOf('borderRightColor') !== -1) {
+              computedStylesTrimmed['borderRightStyle'] = allComputedStyles['borderRightStyle']
+              computedStylesTrimmed['borderRightWidth'] = allComputedStyles['borderRightWidth']
+            }
+            if (propertiesToBeTested.indexOf('borderBottomColor') !== -1) {
+              computedStylesTrimmed['borderBottomStyle'] = allComputedStyles['borderBottomStyle']
+              computedStylesTrimmed['borderBottomWidth'] = allComputedStyles['borderBottomWidth']
+            }
+            if (propertiesToBeTested.indexOf('borderLeftColor') !== -1) {
+              computedStylesTrimmed['borderLeftStyle'] = allComputedStyles['borderLeftStyle']
+              computedStylesTrimmed['borderLeftWidth'] = allComputedStyles['borderLeftWidth']
+            }
+
             report.push(computedStylesTrimmed)
           }
         })
@@ -89,10 +112,6 @@ const pixelpolice = (config) => {
 
           switch (property) {
             case 'color':
-            case 'borderTopColor':
-            case 'borderRightColor':
-            case 'borderBottomColor':
-            case 'borderLeftColor':
               result = color.test(el[property], config.propertyValues[property])
               break
 
@@ -100,11 +119,27 @@ const pixelpolice = (config) => {
               result = color.test(el[property], config.propertyValues[property], true)
               break
 
+            case 'borderTopColor':
+              result = border.colorTest(el.borderTopColor, el.borderTopStyle, el.borderTopWidth, config.propertyValues.borderTopColor)
+              break
+
+            case 'borderRightColor':
+              result = border.colorTest(el.borderRightColor, el.borderRightStyle, el.borderRightWidth, config.propertyValues.borderRightColor)
+              break
+
+            case 'borderBottomColor':
+              result = border.colorTest(el.borderBottomColor, el.borderBottomStyle, el.borderBottomWidth, config.propertyValues.borderBottomColor)
+              break
+
+            case 'borderLeftColor':
+              result = border.colorTest(el.borderLeftColor, el.borderLeftStyle, el.borderLeftWidth, config.propertyValues.borderLeftColor)
+              break
+
             case 'paddingTop':
             case 'paddingRight':
             case 'paddingBottom':
             case 'paddingLeft':
-              result = padding.test(el[property], config.propertyValues[property])
+              result = padding.test(el[property], config.propertyValues[property]);
               break
 
             case 'outlineColor':
@@ -116,6 +151,7 @@ const pixelpolice = (config) => {
               break
 
             default:
+              result = true
               console.error(`main js error ${property}`)
           }
 
@@ -136,7 +172,7 @@ const pixelpolice = (config) => {
       })
 
       console.log(urlReport(url, elements.length, totalPassedTests, totalFailedTests))
-
+      //
       // debugger;
       // await page.click('a[target=_blank]');
 
