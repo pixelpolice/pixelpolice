@@ -1,8 +1,9 @@
 const main = require('../../scripts/main.js')
+const messages = require('../../scripts/messages.js')
 const testConfig = require('./outlineStyle.spec.json')
 
 const failedMessages = []
-failedMessages.push(main.elementFailedReport("<p id=\"outline-style-fail\">outline-style-fail</p>", [{
+failedMessages.push(messages.elementFailedReport("<p id=\"outline-style-fail\">outline-style-fail</p>", [{
   "property": "outlineStyle",
   "saw": "dashed"
 }], testConfig))
@@ -14,7 +15,7 @@ const url = testConfig.urls[0];
 
 
 const expected = `
-testing: ${url}${failedMessages[0]}${main.urlReport(url, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
+testing: ${url}${failedMessages[0]}${messages.urlReport(url, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
 
 describe('outline style tests', () => {
   test('fails when incorrect outline styles used', async () => {

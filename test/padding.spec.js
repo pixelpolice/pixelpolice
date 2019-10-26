@@ -1,21 +1,22 @@
 const main = require('../scripts/main.js')
+const messages = require('../scripts/messages.js')
 const testConfig = require('./padding.spec.json')
 
 const failedMessages = []
 
-failedMessages.push(main.elementFailedReport("<p id=\"px-padding-top-fail\">px-padding-top-fail</p>", [{
+failedMessages.push(messages.elementFailedReport("<p id=\"px-padding-top-fail\">px-padding-top-fail</p>", [{
   "property": "paddingTop",
   "saw": "123px"
 }], testConfig))
-failedMessages.push(main.elementFailedReport("<p id=\"px-padding-right-fail\">px-padding-right-fail</p>", [{
+failedMessages.push(messages.elementFailedReport("<p id=\"px-padding-right-fail\">px-padding-right-fail</p>", [{
   "property": "paddingRight",
   "saw": "123px"
 }], testConfig))
-failedMessages.push(main.elementFailedReport("<p id=\"px-padding-bottom-fail\">px-padding-bottom-fail</p>", [{
+failedMessages.push(messages.elementFailedReport("<p id=\"px-padding-bottom-fail\">px-padding-bottom-fail</p>", [{
   "property": "paddingBottom",
   "saw": "123px"
 }], testConfig))
-failedMessages.push(main.elementFailedReport("<p id=\"px-padding-left-fail\">px-padding-left-fail</p>", [{
+failedMessages.push(messages.elementFailedReport("<p id=\"px-padding-left-fail\">px-padding-left-fail</p>", [{
   "property": "paddingLeft",
   "saw": "123px"
 }], testConfig))
@@ -29,7 +30,7 @@ const url = testConfig.urls[0];
 
 
 const expected = `
-testing: ${url}${failedMessages[0]}${failedMessages[1]}${failedMessages[2]}${failedMessages[3]}${main.urlReport(url, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
+testing: ${url}${failedMessages[0]}${failedMessages[1]}${failedMessages[2]}${failedMessages[3]}${messages.urlReport(url, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
 
 describe('background colour tests', () => {
   test('fails when incorrect colors used', async () => {

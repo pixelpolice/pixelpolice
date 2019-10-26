@@ -1,40 +1,11 @@
 const puppeteer = require('puppeteer')
-const chalk = require('chalk')
+const messages = require('./messages')
 const color = require('./color/color')
 const padding = require('./padding/padding')
 const outline = require('./outline/outline')
 const border = require('./border/border')
 const font = require('./font/font')
 
-const urlReport = (urlTested, elementsCount, passedTestCount, failedTestCount) => {
-  return `
-==============================================================
-
-  ${chalk.bgRed.black(' FAIL ')} ${urlTested}
-  Number of elements tested: ${elementsCount}
-  ${chalk.green(`Passed tests: ${passedTestCount}`)}
-  ${chalk.red(`Failed tests: ${failedTestCount}`)}
-
-==============================================================`
-}
-
-const elementFailedReport = (identifier, failedMessages, config) => {
-  let messages = ''
-  failedMessages.forEach((message) => {
-    messages = messages + `${chalk.red(`
-● Failed when testing ${chalk.bold(message.property)} property`)}
-    - Observed: ${message.saw}
-    - Expected one of: ${config.propertyValues[message.property]}
-`
-  })
-  return `
---------------------------------------------------------------
-
-${chalk.bgRed.black(' FAIL ')}
-
-${chalk.red('->')} ${identifier}
-${messages}`
-}
 
 const pixelpolice = (config) => {
   return new Promise((resolve, reject) => {
@@ -172,11 +143,11 @@ const pixelpolice = (config) => {
         })
 
         if (failedTests.length) {
-          console.log(elementFailedReport(el.identifier, failedTests, config))
+          console.log(messages.elementFailedReport(el.identifier, failedTests, config))
         }
       })
 
-      console.log(urlReport(url, elements.length, totalPassedTests, totalFailedTests))
+      console.log(messages.urlReport(url, elements.length, totalPassedTests, totalFailedTests))
       //
       // debugger;
       // await page.click('a[target=_blank]');
@@ -189,7 +160,5 @@ const pixelpolice = (config) => {
 }
 
 module.exports = {
-  pixelpolice,
-  urlReport,
-  elementFailedReport
+  pixelpolice
 }
