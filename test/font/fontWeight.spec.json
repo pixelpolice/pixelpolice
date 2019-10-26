@@ -1,0 +1,6 @@
+{
+  "urls": ["http://localhost:8080/font/fontWeight.spec.html"],
+  "propertyValues": {
+    "fontWeight": ["900"]
+  }
+}

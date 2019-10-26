@@ -91,4 +91,22 @@ describe('configValidator', () => {
     }
     expect(configValidator.check(config)).toBeFalsy()
   })
+
+  test('validator passes for fontWeight defined with numbers', () => {
+    const config = {
+      propertyValues: {
+        fontWeight: ['900']
+      }
+    }
+    expect(configValidator.check(config)).toBeTruthy()
+  })
+
+  test('validator fails for fontWeight defined with names', () => {
+    const config = {
+      propertyValues: {
+        fontWeight: ['bold']
+      }
+    }
+    expect(configValidator.check(config)).toBeFalsy()
+  })
 })

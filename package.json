@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:single": "jest scripts/padding/padding.spec.js",
+    "test:single": "jest scripts/config-validator.spec.js",
     "serve": "http-server ./test",
     "lint:js": "eslint -c config/eslint/base.json './scripts/**/*.js' './config/**/*.js' --ignore-path config/eslint/.eslintignore",
     "lint:js:fix": "eslint -c config/eslint/base.json './scripts/**/*.js' --ignore-path config/eslint/.eslintignore --fix",

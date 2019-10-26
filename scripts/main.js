@@ -126,6 +126,10 @@ const pixelpolice = (config) => {
               result = font.familyTest(el.fontFamily, config.propertyValues.fontFamily)
               break
 
+            case 'fontWeight':
+              result = font.weightTest(el.fontWeight, config.propertyValues.fontWeight)
+              break
+
             default:
               result = true
               console.error(`main js error ${property}`)

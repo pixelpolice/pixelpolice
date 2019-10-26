@@ -10,6 +10,19 @@ const familyTest = (computedFontFamily, allowedFontFamilyValues) => {
   return testPassed
 }
 
+const weightTest = (computedFontWeight, allowedFontWeightValues) => {
+  let testPassed = false
+
+  allowedFontWeightValues.forEach((allowedFontWeight) => {
+    if (computedFontWeight === allowedFontWeight) {
+      testPassed = true
+    }
+  })
+
+  return testPassed
+}
+
 module.exports = {
-  familyTest
+  familyTest,
+  weightTest
 }

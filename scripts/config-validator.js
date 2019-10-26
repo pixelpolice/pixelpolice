@@ -14,7 +14,8 @@ const validateProperties = (config) => {
     'paddingLeft',
     'paddingBottom',
     'paddingRight',
-    'fontFamily'
+    'fontFamily',
+    'fontWeight'
   ]
 
   for (const key of Object.keys(config.propertyValues)) {
@@ -29,7 +30,8 @@ const validateProperties = (config) => {
 
 const validatePropertyValues = (config) => {
   const units = {
-    singleLowerCaseWord: /^[a-z]*/,
+    // singleLowerCaseWord: /^[a-z]*/,
+    singleNumber: /^[0-9]*$/,
     px: /\d*\.?\d+px/,
     color: /^#([A-Fa-f0-9]{3,4}){1,2}$|^rgb\(|^rgba\(|(transparent)/
   }
@@ -44,7 +46,8 @@ const validatePropertyValues = (config) => {
     paddingTop: units.px,
     paddingLeft: units.px,
     paddingBottom: units.px,
-    paddingRight: units.px
+    paddingRight: units.px,
+    fontWeight: units.singleNumber
   }
   let currentTest
   let validUnits = true
@@ -53,6 +56,9 @@ const validatePropertyValues = (config) => {
     if (allowedPropertiesAndUnits[key] !== undefined) {
       config.propertyValues[key].forEach((property) => {
         currentTest = allowedPropertiesAndUnits[key].test(property)
+
+        console.log(`${property} ${key} ${currentTest}`)
+
         if (currentTest === false) {
           validUnits = false
         }
