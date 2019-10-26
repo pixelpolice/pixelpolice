@@ -14,6 +14,7 @@ const validateProperties = (config) => {
     'paddingLeft',
     'paddingBottom',
     'paddingRight',
+    'fontSize',
     'fontFamily',
     'fontWeight'
   ]
@@ -47,6 +48,7 @@ const validatePropertyValues = (config) => {
     paddingLeft: units.px,
     paddingBottom: units.px,
     paddingRight: units.px,
+    fontSize: units.px,
     fontWeight: units.singleNumber
   }
   let currentTest

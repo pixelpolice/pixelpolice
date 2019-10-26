@@ -14,14 +14,26 @@ describe('font family test', () => {
   })
 
   test('passing font-weight test', () => {
-    const computedFontFamily = '400'
-    const allowedFontFamilyValues = ['400']
-    expect(font.weightTest(computedFontFamily, allowedFontFamilyValues)).toBeTruthy()
+    const computedFontWeight = '400'
+    const allowedFontWeightValues = ['400']
+    expect(font.weightTest(computedFontWeight, allowedFontWeightValues)).toBeTruthy()
   })
 
   test('failing font-weight test', () => {
-    const computedFontFamily = '500'
-    const allowedFontFamilyValues = ['400']
-    expect(font.weightTest(computedFontFamily, allowedFontFamilyValues)).toBeFalsy()
+    const computedFontWeight = '500'
+    const allowedFontWeightValues = ['400']
+    expect(font.weightTest(computedFontWeight, allowedFontWeightValues)).toBeFalsy()
+  })
+
+  test('passing font-size test', () => {
+    const computedFontSize = '24px'
+    const allowedFontSizeValues = ['24px']
+    expect(font.weightTest(computedFontSize, allowedFontSizeValues)).toBeTruthy()
+  })
+
+  test('failing font-weight test', () => {
+    const computedFontSize = '24px'
+    const allowedFontSizeValues = ['48px']
+    expect(font.weightTest(computedFontSize, allowedFontSizeValues)).toBeFalsy()
   })
 })

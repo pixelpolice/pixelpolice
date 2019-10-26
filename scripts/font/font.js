@@ -10,11 +10,23 @@ const familyTest = (computedFontFamily, allowedFontFamilyValues) => {
   return testPassed
 }
 
-const weightTest = (computedFontWeight, allowedFontWeightValues) => {
+const weightTest = (computedFontWeight, allowedFontSizeValues) => {
   let testPassed = false
 
-  allowedFontWeightValues.forEach((allowedFontWeight) => {
+  allowedFontSizeValues.forEach((allowedFontWeight) => {
     if (computedFontWeight === allowedFontWeight) {
+      testPassed = true
+    }
+  })
+
+  return testPassed
+}
+
+const sizeTest = (computedFontSize, allowedFontSizeValues) => {
+  let testPassed = false
+
+  allowedFontSizeValues.forEach((allowedFontSize) => {
+    if (computedFontSize === allowedFontSize) {
       testPassed = true
     }
   })
@@ -24,5 +36,6 @@ const weightTest = (computedFontWeight, allowedFontWeightValues) => {
 
 module.exports = {
   familyTest,
-  weightTest
+  weightTest,
+  sizeTest
 }
