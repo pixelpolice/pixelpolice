@@ -1,57 +1,67 @@
 #!/usr/bin/env node
 const fs = require('fs')
 const path = require('path')
+const chalk = require('chalk')
+const program = require('commander');
 const appRoot = require('app-root-path')
+const packageJSON = require(path.join('..', 'package'))
+
 const main = require('../scripts/main')
 const messages = require('../scripts/messages')
 const configValidator = require('../scripts/config-validator.js')
 const color = require('../scripts/color/color')
 
-
-const argv = require('yargs')
-  .scriptName("pixelpolice")
-  .usage('$0 <cmd> [args]')
-  .config('config')
-  .argv
-
-// const config = JSON.parse(fs.readFileSync(argv.config, 'utf-8'));
-const config = require(path.resolve(argv.config))
-
-console.log(messages.logo());
-
-if (configValidator.check(config) !== true) {
-  throw new Error('Invalid config')
+const commaSeparatedList = value => {
+  return value.split(',');
 }
 
-// const userPropertyValues = config.propertyValues;
-const colourPropertiesToRGBA = [
-  'color',
-  'backgroundColor',
-  'borderTopColor',
-  'borderRightColor',
-  'borderBottomColor',
-  'borderLeftColor',
-  'outlineColor'
-]
+program
+  .arguments('<config> [options]')
+  .option('-c, --config <path>', 'set config path')
+  // .option('-u, --urls <list>', 'comma separated list of urls to test. Overrides config file', commaSeparatedList)
+  .option('-v, --verbose', 'output all test details', false)
+  .version(packageJSON.version)
+  .parse(process.argv);
 
-config.tests.forEach(test => {
-  colourPropertiesToRGBA.forEach(property => {
-    if (test.propertyValues.hasOwnProperty(property)) {
-      test.propertyValues[property] = color.configToRGBA(test.propertyValues[property])
-    }
-  })
-})
+if (program.config) {
+  console.log(messages.logo());
 
-// console.log(JSON.stringify(config, null, 4));
+  const config = require(path.resolve(program.config))
+  const pixelpoliceTests = []
+  const colourPropertiesToRGBA = [
+    'color',
+    'backgroundColor',
+    'borderTopColor',
+    'borderRightColor',
+    'borderBottomColor',
+    'borderLeftColor',
+    'outlineColor'
+  ]
 
-const pixelpoliceTests = []
+  if (configValidator.check(config) !== true) {
+    throw new Error('Invalid config')
+  }
 
-config.urls.forEach(url => {
   config.tests.forEach(test => {
-    pixelpoliceTests.push(main.pixelpolice(url, test))
+    colourPropertiesToRGBA.forEach(property => {
+      if (test.propertyValues.hasOwnProperty(property)) {
+        test.propertyValues[property] = color.configToRGBA(test.propertyValues[property])
+      }
+    })
   })
-})
 
-Promise.all(pixelpoliceTests).then(reports => {
-  console.log(messages.fullReport(reports));
-})
+  config.urls.forEach(url => {
+    config.tests.forEach(test => {
+      pixelpoliceTests.push(main.pixelpolice(url, test, program.verbose))
+    })
+  })
+
+  Promise.all(pixelpoliceTests).then(reports => {
+    console.log(messages.fullReport(reports));
+  })
+
+
+} else {
+  console.error(chalk.red('ERROR config path (-c, --config) is required\n'));
+  program.help();
+}

@@ -7,12 +7,11 @@
     "test": "jest",
     "test:single": "jest ./scripts/config-validator.spec.js",
     "serve": "http-server ./test",
-    "lint:js": "eslint -c config/eslint/base.json './scripts/**/*.js' './config/**/*.js' --ignore-path config/eslint/.eslintignore",
+    "lint:js": "eslint -c config/eslint/base.json './scripts/**/*.js' --ignore-path config/eslint/.eslintignore",
     "lint:js:fix": "eslint -c config/eslint/base.json './scripts/**/*.js' --ignore-path config/eslint/.eslintignore --fix",
-    "pixelpolice": "node bin/cli.js --config ./test/realistic-config.spec.json",
+    "pixelpolice": "node bin/cli.js",
     "pixelpolice:realistic": "node bin/cli.js --config ./scripts/example-config.js",
-    "pixelpolice:single": "node bin/cli.js --config ./test/padding.spec.json",
-    "pixelpolice:help": "node bin/pixelpolice.js --help"
+    "pixelpolice:single": "node bin/cli.js --config ./test/padding.spec.json"
   },
   "repository": {
     "type": "git",
@@ -27,9 +26,9 @@
   "dependencies": {
     "app-root-path": "^2.2.1",
     "chalk": "^2.4.2",
+    "commander": "^3.0.2",
     "puppeteer": "^1.19.0",
-    "rgb": "^0.1.0",
-    "yargs": "^14.0.0"
+    "rgb": "^0.1.0"
   },
   "bin": {
     "pixelpolice": "cli.js"

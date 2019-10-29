@@ -32,7 +32,7 @@ const expected = `${messages.testBeingRun(url, testConfig)}${failedMessages[0]}$
 describe('colour tests', () => {
   test('fails when incorrect colors used', async () => {
     console.log = jest.fn();
-    await main.pixelpolice(url, testConfig).then(() => {
+    await main.pixelpolice(url, testConfig, true).then(() => {
       expect(console.log.mock.calls.join('')).toBe(expected)
     })
   })

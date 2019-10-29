@@ -6,10 +6,8 @@ const outline = require('./outline/outline')
 const border = require('./border/border')
 const font = require('./font/font')
 
-const pixelpolice = (url, config) => {
+const pixelpolice = (url, config, verboseMessaging) => {
   return new Promise((resolve, reject) => {
-    // const url = config.urls[0]
-
     const propertiesToBeTested = Object.keys(config.propertyValues)
 
     let totalPassedTests = 0
@@ -150,7 +148,7 @@ const pixelpolice = (url, config) => {
           }
         })
 
-        if (failedTests.length) {
+        if (failedTests.length && verboseMessaging) {
           console.log(messages.elementFailedReport(el.identifier, failedTests, config))
         }
       })
@@ -160,7 +158,9 @@ const pixelpolice = (url, config) => {
       // debugger;
       // await page.click('a[target=_blank]');
 
-      console.log(messages.urlReport(url, config, elements.length, totalPassedTests, totalFailedTests))
+      if (verboseMessaging) {
+        console.log(messages.urlReport(url, config, elements.length, totalPassedTests, totalFailedTests))
+      }
 
       resultData = {
         pass: true,

@@ -21,7 +21,7 @@ const expected = `${messages.testBeingRun(url, testConfig)}${failedMessages[0]}$
 describe('font tests', () => {
   test('fails when incorrect font weight used', async () => {
     console.log = jest.fn();
-    await main.pixelpolice(url, testConfig).then(() => {
+    await main.pixelpolice(url, testConfig, true).then(() => {
       expect(console.log.mock.calls.join('')).toBe(expected)
     })
   })
