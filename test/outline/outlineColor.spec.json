@@ -1,7 +1,13 @@
 {
   "urls": ["http://localhost:8080/outline/outlineColor.spec.html"],
-  "propertyValues": {
-    "outlineColor": ["rgb(11, 11, 11)","rgb(255, 0, 0)"],
-    "outlineStyle" : ["solid"]
-  }
+  "tests": [{
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "propertyValues": {
+      "outlineColor": ["rgb(11, 11, 11)","rgb(255, 0, 0)"],
+      "outlineStyle" : ["solid"]
+    }
+  }]
 }

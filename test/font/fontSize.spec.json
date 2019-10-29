@@ -1,12 +1,12 @@
 {
-  "urls": ["http://localhost:8080/font/fontFamily.spec.html"],
+  "urls": ["http://localhost:8080/font/fontSize.spec.html"],
   "tests": [{
     "viewport": {
       "width": 320,
       "height": 568
     },
     "propertyValues": {
-      "fontFamily": ["Arial"]
+      "fontSize": ["24px"]
     }
   }]
 }

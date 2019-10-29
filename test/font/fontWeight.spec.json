@@ -1,6 +1,12 @@
 {
   "urls": ["http://localhost:8080/font/fontWeight.spec.html"],
-  "propertyValues": {
-    "fontWeight": ["900"]
-  }
+  "tests": [{
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "propertyValues": {
+      "fontWeight": ["900"]
+    }
+  }]
 }

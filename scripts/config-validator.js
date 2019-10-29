@@ -18,15 +18,18 @@ const validateProperties = (config) => {
     'fontFamily',
     'fontWeight'
   ]
+  let validProperties = true
 
-  for (const key of Object.keys(config.propertyValues)) {
-    if (allowedProperties.indexOf(key) === -1) {
-      console.error(chalk.red(`Sorry pixelpolice currently is unable to test property: ${key}`))
-      return false
+  config.tests.forEach(test => {
+    for (const key of Object.keys(test.propertyValues)) {
+      if (allowedProperties.indexOf(key) === -1) {
+        console.error(chalk.red(`Sorry pixelpolice currently is unable to test property: ${key}`))
+        validProperties = false
+      }
     }
-  }
+  })
 
-  return true
+  return validProperties
 }
 
 const validatePropertyValues = (config) => {
@@ -54,19 +57,19 @@ const validatePropertyValues = (config) => {
   let currentTest
   let validUnits = true
 
-  for (const key of Object.keys(config.propertyValues)) {
-    if (allowedPropertiesAndUnits[key] !== undefined) {
-      config.propertyValues[key].forEach((property) => {
-        currentTest = allowedPropertiesAndUnits[key].test(property)
+  config.tests.forEach(test => {
+    for (const key of Object.keys(test.propertyValues)) {
+      if (allowedPropertiesAndUnits[key] !== undefined) {
+        test.propertyValues[key].forEach((property) => {
+          currentTest = allowedPropertiesAndUnits[key].test(property)
 
-        console.log(`${property} ${key} ${currentTest}`)
-
-        if (currentTest === false) {
-          validUnits = false
-        }
-      })
+          if (currentTest === false) {
+            validUnits = false
+          }
+        })
+      }
     }
-  }
+  })
 
   return validUnits
 }

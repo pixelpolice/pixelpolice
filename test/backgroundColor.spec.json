@@ -1,6 +1,12 @@
 {
   "urls": ["http://localhost:8080/backgroundColor.spec.html"],
-  "propertyValues": {
-    "backgroundColor": ["rgb(0, 0, 0)","rgb(255, 255, 255)"]
-  }
+  "tests": [{
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "propertyValues": {
+      "backgroundColor": ["rgb(0, 0, 0)","rgb(255, 255, 255)"]
+    }
+  }]
 }

@@ -1,6 +1,12 @@
 {
   "urls": ["http://localhost:8080/outline/outlineStyle.spec.html"],
-  "propertyValues": {
-    "outlineStyle" : ["groove"]
-  }
+  "tests": [{
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "propertyValues": {
+      "outlineStyle" : ["groove"]
+    }
+  }]
 }

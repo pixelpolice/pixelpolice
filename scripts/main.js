@@ -6,25 +6,25 @@ const outline = require('./outline/outline')
 const border = require('./border/border')
 const font = require('./font/font')
 
-
-const pixelpolice = (config) => {
+const pixelpolice = (url, config) => {
   return new Promise((resolve, reject) => {
-    const url = config.urls[0]
+    // const url = config.urls[0]
 
     const propertiesToBeTested = Object.keys(config.propertyValues)
 
     let totalPassedTests = 0
     let totalFailedTests = 0
+    let resultData = {}
 
-    console.log(`\ntesting: ${url}`);
+    console.log(messages.testBeingRun(url, config));
 
     (async () => {
       const browser = await puppeteer.launch({
         // headless: false,
         headless: true,
         defaultViewport: {
-          width: 320,
-          height: 568
+          width: config.viewport.width,
+          height: config.viewport.height
         }
       })
       const page = await browser.newPage()
@@ -48,25 +48,25 @@ const pixelpolice = (config) => {
 
             // outlineColor needs outlineStyle to be tested
             if (propertiesToBeTested.indexOf('outlineColor') !== -1) {
-              computedStylesTrimmed['outlineStyle'] = allComputedStyles['outlineStyle']
+              computedStylesTrimmed.outlineStyle = allComputedStyles.outlineStyle
             }
 
             // borderColor needs borderStyle and borderWidth to be tested
             if (propertiesToBeTested.indexOf('borderTopColor') !== -1) {
-              computedStylesTrimmed['borderTopStyle'] = allComputedStyles['borderTopStyle']
-              computedStylesTrimmed['borderTopWidth'] = allComputedStyles['borderTopWidth']
+              computedStylesTrimmed.borderTopStyle = allComputedStyles.borderTopStyle
+              computedStylesTrimmed.borderTopWidth = allComputedStyles.borderTopWidth
             }
             if (propertiesToBeTested.indexOf('borderRightColor') !== -1) {
-              computedStylesTrimmed['borderRightStyle'] = allComputedStyles['borderRightStyle']
-              computedStylesTrimmed['borderRightWidth'] = allComputedStyles['borderRightWidth']
+              computedStylesTrimmed.borderRightStyle = allComputedStyles.borderRightStyle
+              computedStylesTrimmed.borderRightWidth = allComputedStyles.borderRightWidth
             }
             if (propertiesToBeTested.indexOf('borderBottomColor') !== -1) {
-              computedStylesTrimmed['borderBottomStyle'] = allComputedStyles['borderBottomStyle']
-              computedStylesTrimmed['borderBottomWidth'] = allComputedStyles['borderBottomWidth']
+              computedStylesTrimmed.borderBottomStyle = allComputedStyles.borderBottomStyle
+              computedStylesTrimmed.borderBottomWidth = allComputedStyles.borderBottomWidth
             }
             if (propertiesToBeTested.indexOf('borderLeftColor') !== -1) {
-              computedStylesTrimmed['borderLeftStyle'] = allComputedStyles['borderLeftStyle']
-              computedStylesTrimmed['borderLeftWidth'] = allComputedStyles['borderLeftWidth']
+              computedStylesTrimmed.borderLeftStyle = allComputedStyles.borderLeftStyle
+              computedStylesTrimmed.borderLeftWidth = allComputedStyles.borderLeftWidth
             }
 
             report.push(computedStylesTrimmed)
@@ -111,7 +111,7 @@ const pixelpolice = (config) => {
             case 'paddingRight':
             case 'paddingBottom':
             case 'paddingLeft':
-              result = padding.test(el[property], config.propertyValues[property]);
+              result = padding.test(el[property], config.propertyValues[property])
               break
 
             case 'outlineColor':
@@ -155,14 +155,25 @@ const pixelpolice = (config) => {
         }
       })
 
-      console.log(messages.urlReport(url, elements.length, totalPassedTests, totalFailedTests))
-      //
+      await browser.close()
+
       // debugger;
       // await page.click('a[target=_blank]');
 
-      await browser.close()
-    })().then(() => {
-      resolve()
+      console.log(messages.urlReport(url, config, elements.length, totalPassedTests, totalFailedTests))
+
+      resultData = {
+        pass: true,
+        url: url,
+        config: config,
+        elementsCount: elements.length,
+        totalPassedTests: totalPassedTests,
+        totalFailedTests: totalFailedTests
+      }
+
+      return resultData
+    })().then(message => {
+      resolve(message)
     })
   })
 }

@@ -1,9 +1,15 @@
 {
   "urls": ["http://localhost:8080/border/borderColor.spec.html"],
-  "propertyValues": {
-    "borderTopColor": ["rgb(11, 11, 11)","rgb(255, 0, 0)"],
-    "borderRightColor": ["rgb(11, 11, 11)","rgb(255, 0, 0)"],
-    "borderBottomColor": ["rgb(11, 11, 11)","rgb(255, 0, 0)"],
-    "borderLeftColor": ["rgb(11, 11, 11)","rgb(255, 0, 0)"]
-  }
+  "tests": [{
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "propertyValues": {
+      "borderTopColor": ["rgb(11, 11, 11)","rgb(255, 0, 0)"],
+      "borderRightColor": ["rgb(11, 11, 11)","rgb(255, 0, 0)"],
+      "borderBottomColor": ["rgb(11, 11, 11)","rgb(255, 0, 0)"],
+      "borderLeftColor": ["rgb(11, 11, 11)","rgb(255, 0, 0)"]
+    }
+  }]
 }

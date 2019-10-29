@@ -1,6 +1,7 @@
 const main = require('../../scripts/main.js')
 const messages = require('../../scripts/messages.js')
-const testConfig = require('./borderColor.spec.json')
+const config = require('./borderColor.spec.json')
+const testConfig = config.tests[0]
 
 const failedMessages = []
 failedMessages.push(messages.elementFailedReport("<p id=\"hex-fail\">hex-fail</p>", [{
@@ -59,16 +60,15 @@ failedMessages.push(messages.elementFailedReport("<p id=\"color-name-fail\">colo
 const totalPassedTests = 16;
 const totalFailedTests = 16;
 const numberOfElementsTested = 8;
-const url = testConfig.urls[0];
+const url = config.urls[0];
 
 
-const expected = `
-testing: ${url}${failedMessages[0]}${failedMessages[1]}${failedMessages[2]}${failedMessages[3]}${messages.urlReport(url, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
+const expected = `${messages.testBeingRun(url, testConfig)}${failedMessages[0]}${failedMessages[1]}${failedMessages[2]}${failedMessages[3]}${messages.urlReport(url, testConfig, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
 
 describe('border color tests', () => {
   test('fails when incorrect border colors used', async () => {
     console.log = jest.fn();
-    await main.pixelpolice(testConfig).then(() => {
+    await main.pixelpolice(url, testConfig).then(() => {
       expect(console.log.mock.calls.join('')).toBe(expected)
     })
   })
