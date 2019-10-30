@@ -12,9 +12,7 @@ const pixelpolice = (url, config, verboseMessaging) => {
 
     let totalPassedTests = 0
     let totalFailedTests = 0
-    let resultData = {}
-
-    console.log(messages.testBeingRun(url, config));
+    let resultData = {};
 
     (async () => {
       const browser = await puppeteer.launch({
@@ -30,44 +28,47 @@ const pixelpolice = (url, config, verboseMessaging) => {
 
       const elements = await page.evaluate((propertiesToBeTested) => {
         const report = []
+        const formatComputedStyle = (allComputedStyles, identifier) => {
+          const computedStylesTrimmed = {}
+
+          computedStylesTrimmed.identifier = identifier
+
+          propertiesToBeTested.forEach((key) => {
+            computedStylesTrimmed[key] = allComputedStyles[key]
+          })
+
+          // todo: if the required styles do not exist then they do not need to be tested - ie skip unrequired tests
+
+          // outlineColor needs outlineStyle to be tested
+          if (propertiesToBeTested.indexOf('outlineColor') !== -1) {
+            computedStylesTrimmed.outlineStyle = allComputedStyles.outlineStyle
+          }
+
+          // borderColor needs borderStyle and borderWidth to be tested
+          if (propertiesToBeTested.indexOf('borderTopColor') !== -1) {
+            computedStylesTrimmed.borderTopStyle = allComputedStyles.borderTopStyle
+            computedStylesTrimmed.borderTopWidth = allComputedStyles.borderTopWidth
+          }
+          if (propertiesToBeTested.indexOf('borderRightColor') !== -1) {
+            computedStylesTrimmed.borderRightStyle = allComputedStyles.borderRightStyle
+            computedStylesTrimmed.borderRightWidth = allComputedStyles.borderRightWidth
+          }
+          if (propertiesToBeTested.indexOf('borderBottomColor') !== -1) {
+            computedStylesTrimmed.borderBottomStyle = allComputedStyles.borderBottomStyle
+            computedStylesTrimmed.borderBottomWidth = allComputedStyles.borderBottomWidth
+          }
+          if (propertiesToBeTested.indexOf('borderLeftColor') !== -1) {
+            computedStylesTrimmed.borderLeftStyle = allComputedStyles.borderLeftStyle
+            computedStylesTrimmed.borderLeftWidth = allComputedStyles.borderLeftWidth
+          }
+
+          report.push(computedStylesTrimmed)
+        }
 
         document.querySelectorAll('body *').forEach(function (node) {
           if (node.localName !== 'script') {
-            const allComputedStyles = getComputedStyle(node)
-            const computedStylesTrimmed = {}
-
-            computedStylesTrimmed.identifier = node.outerHTML.substring(0, 400)
-
-            propertiesToBeTested.forEach((key) => {
-              computedStylesTrimmed[key] = allComputedStyles[key]
-            })
-
-            // todo: if the required styles do not exist then they do not need to be tested - ie skip unrequired tests
-
-            // outlineColor needs outlineStyle to be tested
-            if (propertiesToBeTested.indexOf('outlineColor') !== -1) {
-              computedStylesTrimmed.outlineStyle = allComputedStyles.outlineStyle
-            }
-
-            // borderColor needs borderStyle and borderWidth to be tested
-            if (propertiesToBeTested.indexOf('borderTopColor') !== -1) {
-              computedStylesTrimmed.borderTopStyle = allComputedStyles.borderTopStyle
-              computedStylesTrimmed.borderTopWidth = allComputedStyles.borderTopWidth
-            }
-            if (propertiesToBeTested.indexOf('borderRightColor') !== -1) {
-              computedStylesTrimmed.borderRightStyle = allComputedStyles.borderRightStyle
-              computedStylesTrimmed.borderRightWidth = allComputedStyles.borderRightWidth
-            }
-            if (propertiesToBeTested.indexOf('borderBottomColor') !== -1) {
-              computedStylesTrimmed.borderBottomStyle = allComputedStyles.borderBottomStyle
-              computedStylesTrimmed.borderBottomWidth = allComputedStyles.borderBottomWidth
-            }
-            if (propertiesToBeTested.indexOf('borderLeftColor') !== -1) {
-              computedStylesTrimmed.borderLeftStyle = allComputedStyles.borderLeftStyle
-              computedStylesTrimmed.borderLeftWidth = allComputedStyles.borderLeftWidth
-            }
-
-            report.push(computedStylesTrimmed)
+            computedStyles = getComputedStyle(node)
+            formatComputedStyle(computedStyles, node.outerHTML.substring(0, 400))
           }
         })
 

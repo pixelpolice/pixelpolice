@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>test page</title>
+    <style>
+      #pseudo-none {
+        color: #000000;
+      }
+
+      #pseudo-before-pass::before {
+        content: "";
+        color: #000000;
+      }
+
+      #pseudo-after-pass::after {
+        content: "";
+        color: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="pseudo-none">pseudo-none</p>
+    <p id="pseudo-before-pass">pseudo-before-pass</p>
+    <p id="pseudo-after-pass">pseudo-after-pass</p>
+  </body>
+</html>

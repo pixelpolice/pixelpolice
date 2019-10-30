@@ -15,7 +15,7 @@ const totalFailedTests = 1;
 const numberOfElementsTested = 3;
 const url = config.urls[0];
 
-const expected = `${messages.testBeingRun(url, testConfig)}${failedMessages[0]}${messages.urlReport(url, testConfig, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
+const expected = `${failedMessages[0]}${messages.urlReport(url, testConfig, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
 
 describe('outline style tests', () => {
   test('fails when incorrect outline styles used', async () => {

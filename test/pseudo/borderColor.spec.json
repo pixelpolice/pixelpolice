@@ -1,0 +1,13 @@
+{
+  "urls": ["http://localhost:8080/border/borderColor.spec.html"],
+  "tests": [{
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "propertyValues": {
+      "color": ["rgb(11, 11, 11)","rgb(255, 0, 0)"],
+      "backgroundColor": ["rgb(11, 11, 11)","rgb(255, 0, 0)"],
+    }
+  }]
+}

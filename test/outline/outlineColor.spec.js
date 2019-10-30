@@ -28,7 +28,7 @@ const numberOfElementsTested = 9;
 const url = config.urls[0];
 
 
-const expected = `${messages.testBeingRun(url, testConfig)}${failedMessages[0]}${failedMessages[1]}${failedMessages[2]}${failedMessages[3]}${messages.urlReport(url, testConfig, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
+const expected = `${failedMessages[0]}${failedMessages[1]}${failedMessages[2]}${failedMessages[3]}${messages.urlReport(url, testConfig, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
 
 describe('outline color tests', () => {
   test('fails when incorrect outline colors used', async () => {

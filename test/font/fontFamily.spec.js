@@ -15,7 +15,7 @@ const numberOfElementsTested = 2;
 const url = config.urls[0];
 
 
-const expected = `${messages.testBeingRun(url, testConfig)}${failedMessages[0]}${messages.urlReport(url, testConfig, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
+const expected = `${failedMessages[0]}${messages.urlReport(url, testConfig, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
 
 describe('font tests', () => {
   test('fails when incorrect font family used', async () => {

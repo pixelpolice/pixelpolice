@@ -56,6 +56,7 @@ if (program.config) {
 
   config.urls.forEach(url => {
     config.tests.forEach(test => {
+      console.log(messages.testBeingRun(url, test));
       pixelpoliceTests.push(main.pixelpolice(url, test, program.verbose))
     })
   })

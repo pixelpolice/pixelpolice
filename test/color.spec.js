@@ -27,7 +27,7 @@ const numberOfElementsTested = 8;
 const url = config.urls[0];
 
 
-const expected = `${messages.testBeingRun(url, testConfig)}${failedMessages[0]}${failedMessages[1]}${failedMessages[2]}${failedMessages[3]}${messages.urlReport(url, testConfig, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
+const expected = `${failedMessages[0]}${failedMessages[1]}${failedMessages[2]}${failedMessages[3]}${messages.urlReport(url, testConfig, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
 
 describe('colour tests', () => {
   test('fails when incorrect colors used', async () => {
