@@ -43,6 +43,10 @@ if (program.config) {
   }
 
   config.tests.forEach(test => {
+    test.viewport = test.viewport !== undefined ? test.viewport : {}
+    test.viewport.width = test.viewport.width !== undefined ? test.viewport.width : 800
+    test.viewport.height = test.viewport.height !== undefined ? test.viewport.height : 600
+
     colourPropertiesToRGBA.forEach(property => {
       if (test.propertyValues.hasOwnProperty(property)) {
         test.propertyValues[property] = color.configToRGBA(test.propertyValues[property])

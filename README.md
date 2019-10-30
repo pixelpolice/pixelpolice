@@ -52,8 +52,7 @@ rem, em, %, cm, vh, vw, vmin, vmax
 
 * pseudo elements
 * --url in CLI
-* --verbose
-* provide a default viewport
 * messages tests
 * docs
 * save scores - design debt tracker
+* margins
