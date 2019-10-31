@@ -67,8 +67,19 @@ const pixelpolice = (url, config, verboseMessaging) => {
 
         document.querySelectorAll('body *').forEach(function (node) {
           if (node.localName !== 'script') {
-            computedStyles = getComputedStyle(node)
-            formatComputedStyle(computedStyles, node.outerHTML.substring(0, 400))
+            let computedStyles = getComputedStyle(node)
+            let computedStylesBefore = getComputedStyle(node, 'before')
+            let computedStylesAfter = getComputedStyle(node, 'after')
+            let identifier = node.outerHTML.substring(0, 400)
+
+            formatComputedStyle(computedStyles, identifier)
+
+            if (computedStylesBefore.content !== 'none') {
+              formatComputedStyle(computedStylesBefore, `::before ${identifier}`)
+            }
+            if (computedStylesAfter.content !== 'none') {
+              formatComputedStyle(computedStylesAfter, `::after ${identifier}`)
+            }
           }
         })
 

@@ -13,15 +13,27 @@
         color: #000000;
       }
 
+      #pseudo-before-fail::before {
+        content: "";
+        color: red;
+      }
+
       #pseudo-after-pass::after {
         content: "";
         color: #000000;
+      }
+
+      #pseudo-after-fail::after {
+        content: "";
+        color: red;
       }
     </style>
   </head>
   <body>
     <p id="pseudo-none">pseudo-none</p>
     <p id="pseudo-before-pass">pseudo-before-pass</p>
+    <p id="pseudo-before-fail">pseudo-before-fail</p>
     <p id="pseudo-after-pass">pseudo-after-pass</p>
+    <p id="pseudo-after-fail">pseudo-after-fail</p>
   </body>
 </html>

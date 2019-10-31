@@ -1,7 +1,7 @@
 const tokens = require('./design-tokens')
 
 module.exports = {
-  urls: ['https://www.giffgaff.com/', 'https://www.giffgaff.com/blog'],
+  urls: ['https://www.giffgaff.com/'],
   tests: [{
     viewport: {
       width: 320,

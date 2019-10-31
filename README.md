@@ -50,9 +50,9 @@ rem, em, %, cm, vh, vw, vmin, vmax
 
 ## TODO
 
-* pseudo elements
 * --url in CLI
 * messages tests
 * docs
 * save scores - design debt tracker
 * margins
+* rem
