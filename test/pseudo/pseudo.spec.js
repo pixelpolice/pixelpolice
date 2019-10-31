@@ -28,7 +28,7 @@ const expected = {
 describe('pseudo element tests', () => {
   test('fails when incorrect colors used on psdeuo elements', async () => {
     await main.pixelpolice(url, testConfig, true).then(result => {
-      expect(result).toMatchObject(expected)
+      expect(result).toStrictEqual(expected)
     })
   })
 })

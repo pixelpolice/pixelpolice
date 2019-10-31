@@ -77,7 +77,7 @@ const expected = {
 describe('border color tests', () => {
   test('fails when incorrect border colors used', async () => {
     await main.pixelpolice(url, testConfig, true).then(result => {
-      expect(result).toMatchObject(expected)
+      expect(result).toStrictEqual(expected)
     })
   })
 })

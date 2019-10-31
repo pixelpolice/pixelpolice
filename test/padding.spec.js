@@ -41,7 +41,7 @@ const expected = {
 describe('padding tests', () => {
   test('fails when incorrect paddings used', async () => {
     await main.pixelpolice(url, testConfig, true).then(result => {
-      expect(result).toMatchObject(expected)
+      expect(result).toStrictEqual(expected)
     })
   })
 })

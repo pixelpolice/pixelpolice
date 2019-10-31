@@ -23,7 +23,7 @@ const expected = {
 describe('font tests', () => {
   test('fails when incorrect font size used', async () => {
     await main.pixelpolice(url, testConfig, true).then(result => {
-      expect(result).toMatchObject(expected)
+      expect(result).toStrictEqual(expected)
     })
   })
 })

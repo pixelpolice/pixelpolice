@@ -41,7 +41,7 @@ const expected = {
 describe('background color tests', () => {
   test('fails when incorrect background colors used', async () => {
     await main.pixelpolice(url, testConfig, true).then(result => {
-      expect(result).toMatchObject(expected)
+      expect(result).toStrictEqual(expected)
     })
   })
 })
