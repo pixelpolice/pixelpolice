@@ -1,42 +1,47 @@
 const main = require('../scripts/main.js')
 const messages = require('../scripts/messages.js')
 const config = require('./padding.spec.json')
+
 const testConfig = config.tests[0]
-
-const failedMessages = []
-
-failedMessages.push(messages.elementFailedReport("<p id=\"px-padding-top-fail\">px-padding-top-fail</p>", [{
-  "property": "paddingTop",
-  "saw": "123px"
-}], testConfig))
-failedMessages.push(messages.elementFailedReport("<p id=\"px-padding-right-fail\">px-padding-right-fail</p>", [{
-  "property": "paddingRight",
-  "saw": "123px"
-}], testConfig))
-failedMessages.push(messages.elementFailedReport("<p id=\"px-padding-bottom-fail\">px-padding-bottom-fail</p>", [{
-  "property": "paddingBottom",
-  "saw": "123px"
-}], testConfig))
-failedMessages.push(messages.elementFailedReport("<p id=\"px-padding-left-fail\">px-padding-left-fail</p>", [{
-  "property": "paddingLeft",
-  "saw": "123px"
-}], testConfig))
-
-
-// total tests = 36
-const totalPassedTests = 32; // each element will have 4 padding properties
-const totalFailedTests = 4;
-const numberOfElementsTested = 9;
 const url = config.urls[0];
 
+const expected = {
+  url: url,
+  config: testConfig,
+  elementsCount: 9,
+  totalPassedTests: 32,
+  totalFailedTests: 4,
+  failedTests: [{
+    "identifier": "<p id=\"px-padding-top-fail\">px-padding-top-fail</p>",
+    "results": [{
+      "property": "paddingTop",
+      "saw": "123px"
+    }]
+  },{
+    "identifier": "<p id=\"px-padding-right-fail\">px-padding-right-fail</p>",
+    "results": [{
+      "property": "paddingRight",
+      "saw": "123px"
+    }]
+  },{
+    "identifier": "<p id=\"px-padding-bottom-fail\">px-padding-bottom-fail</p>",
+    "results": [{
+      "property": "paddingBottom",
+      "saw": "123px"
+    }]
+  },{
+    "identifier": "<p id=\"px-padding-left-fail\">px-padding-left-fail</p>",
+    "results": [{
+      "property": "paddingLeft",
+      "saw": "123px"
+    }]
+  }]
+}
 
-const expected = `${failedMessages[0]}${failedMessages[1]}${failedMessages[2]}${failedMessages[3]}${messages.urlReport(url, testConfig, numberOfElementsTested, totalPassedTests, totalFailedTests)}`
-
-describe('background colour tests', () => {
-  test('fails when incorrect colors used', async () => {
-    console.log = jest.fn();
-    await main.pixelpolice(url, testConfig, true).then(() => {
-      expect(console.log.mock.calls.join('')).toBe(expected)
+describe('padding tests', () => {
+  test('fails when incorrect paddings used', async () => {
+    await main.pixelpolice(url, testConfig, true).then(result => {
+      expect(result).toMatchObject(expected)
     })
   })
 })

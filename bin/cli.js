@@ -57,12 +57,12 @@ if (program.config) {
   config.urls.forEach(url => {
     config.tests.forEach(test => {
       console.log(messages.testBeingRun(url, test));
-      pixelpoliceTests.push(main.pixelpolice(url, test, program.verbose))
+      pixelpoliceTests.push(main.pixelpolice(url, test))
     })
   })
 
   Promise.all(pixelpoliceTests).then(reports => {
-    console.log(messages.fullReport(reports));
+    console.log(messages.fullReport(reports, program.verbose));
   })
 
 

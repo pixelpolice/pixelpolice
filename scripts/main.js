@@ -1,18 +1,18 @@
 const puppeteer = require('puppeteer')
-const messages = require('./messages')
 const color = require('./color/color')
 const padding = require('./padding/padding')
 const outline = require('./outline/outline')
 const border = require('./border/border')
 const font = require('./font/font')
 
-const pixelpolice = (url, config, verboseMessaging) => {
+const pixelpolice = (url, config) => {
   return new Promise((resolve, reject) => {
     const propertiesToBeTested = Object.keys(config.propertyValues)
 
     let totalPassedTests = 0
     let totalFailedTests = 0
-    let resultData = {};
+    let resultData = {}
+    const allFailedTests = [];
 
     (async () => {
       const browser = await puppeteer.launch({
@@ -67,10 +67,10 @@ const pixelpolice = (url, config, verboseMessaging) => {
 
         document.querySelectorAll('body *').forEach(function (node) {
           if (node.localName !== 'script') {
-            let computedStyles = getComputedStyle(node)
-            let computedStylesBefore = getComputedStyle(node, 'before')
-            let computedStylesAfter = getComputedStyle(node, 'after')
-            let identifier = node.outerHTML.substring(0, 400)
+            const computedStyles = getComputedStyle(node)
+            const computedStylesBefore = getComputedStyle(node, 'before')
+            const computedStylesAfter = getComputedStyle(node, 'after')
+            const identifier = node.outerHTML.substring(0, 400)
 
             formatComputedStyle(computedStyles, identifier)
 
@@ -87,7 +87,9 @@ const pixelpolice = (url, config, verboseMessaging) => {
       }, propertiesToBeTested)
 
       elements.forEach((el) => {
-        const failedTests = []
+        const failedTests = {}
+        failedTests.identifier = el.identifier
+        failedTests.results = []
 
         propertiesToBeTested.forEach((property, i) => {
           let result = ''
@@ -153,15 +155,15 @@ const pixelpolice = (url, config, verboseMessaging) => {
             totalPassedTests++
           } else {
             totalFailedTests++
-            failedTests.push({
+            failedTests.results.push({
               property: property,
               saw: el[property]
             })
           }
         })
 
-        if (failedTests.length && verboseMessaging) {
-          console.log(messages.elementFailedReport(el.identifier, failedTests, config))
+        if (failedTests.results.length) {
+          allFailedTests.push(failedTests)
         }
       })
 
@@ -170,17 +172,13 @@ const pixelpolice = (url, config, verboseMessaging) => {
       // debugger;
       // await page.click('a[target=_blank]');
 
-      if (verboseMessaging) {
-        console.log(messages.urlReport(url, config, elements.length, totalPassedTests, totalFailedTests))
-      }
-
       resultData = {
-        pass: true,
         url: url,
         config: config,
         elementsCount: elements.length,
         totalPassedTests: totalPassedTests,
-        totalFailedTests: totalFailedTests
+        totalFailedTests: totalFailedTests,
+        failedTests: allFailedTests
       }
 
       return resultData

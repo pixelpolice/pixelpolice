@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:single": "jest ./test/pseudo/pseudo.spec.js",
-    "serve": "http-server ./test",
+    "test": "concurrently \"npm run test:server\" \"jest --silent\" --kill-others",
+    "test:single": "concurrently \"npm run test:server\" \"jest ./test/padding.spec.js\" --kill-others",
+    "test:server": "http-server ./test --silent",
     "lint:js": "eslint -c config/eslint/base.json './scripts/**/*.js' --ignore-path config/eslint/.eslintignore",
     "lint:js:fix": "eslint -c config/eslint/base.json './scripts/**/*.js' --ignore-path config/eslint/.eslintignore --fix",
     "pixelpolice": "node bin/cli.js",
@@ -35,6 +35,7 @@
     "pixelpolice": "cli.js"
   },
   "devDependencies": {
+    "concurrently": "^5.0.0",
     "eslint": "6.4.0",
     "eslint-config-standard": "14.1.0",
     "eslint-plugin-import": "2.18.2",

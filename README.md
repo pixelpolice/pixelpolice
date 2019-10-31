@@ -50,9 +50,12 @@ rem, em, %, cm, vh, vw, vmin, vmax
 
 ## TODO
 
-* --url in CLI
+* --urls in CLI
+* --config-url in CLI eg --url 0 for first url specified
 * messages tests
 * docs
 * save scores - design debt tracker
 * margins
 * rem
+* config validation messaging
+* --config-test-properties only run for subset of properties listed in config

@@ -20,18 +20,6 @@ const testBeingRun = (url, config) => {
   return `${chalk.black.bgRgb(247, 168, 0)(' testing ')} ${urlViewport(url, config)}`
 }
 
-const urlReport = (urlTested, config, elementsCount, passedTestCount, failedTestCount) => {
-  return `
-=====================================================================
-
-  ${chalk.bgRed.black(' FAIL ')} ${urlViewport(urlTested, config)}
-  Number of elements tested: ${elementsCount}
-  ${chalk.green(`Passed tests: ${passedTestCount}`)}
-  ${chalk.red(`Failed tests: ${failedTestCount}`)}
-
-=====================================================================`
-}
-
 const elementFailedReport = (identifier, failedMessages, config) => {
   let messages = ''
   failedMessages.forEach((message) => {
@@ -44,22 +32,31 @@ const elementFailedReport = (identifier, failedMessages, config) => {
   return `
 ---------------------------------------------------------------------
 
-${chalk.bgRed.black(' FAIL ')}
-
 ${chalk.red('->')} ${identifier}
 ${messages}`
 }
 
-const fullReport = reports => {
+const fullReport = (reports, verbose) => {
   let reportMessages = ''
 
-  reports.forEach(report => {
+  reports.forEach((report, i) => {
+    if (i !== 0 && verbose) {
+      reportMessages += `
+=====================================================================
+`
+    }
     reportMessages += `
 ${chalk.bgRed.black(' FAIL ')} ${urlViewport(report.url, report.config)}
  - Number of elements tested: ${report.elementsCount}
  - ${chalk.green(`Passed tests: ${report.totalPassedTests}`)}
  - ${chalk.red(`Failed tests: ${report.totalFailedTests}`)}
 `
+
+    if (verbose) {
+      report.failedTests.forEach(test => {
+        reportMessages += elementFailedReport(test.identifier, test.results, report.config)
+      })
+    }
   })
 
   return `
@@ -74,7 +71,5 @@ ${reportMessages}
 module.exports = {
   logo,
   testBeingRun,
-  urlReport,
-  elementFailedReport,
   fullReport
 }
