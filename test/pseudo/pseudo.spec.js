@@ -1,6 +1,6 @@
 const main = require('../../scripts/main.js')
-const messages = require('../../scripts/messages.js')
 const config = require('./pseudo.spec.json')
+
 const testConfig = config.tests[0]
 const url = config.urls[0]
 

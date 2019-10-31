@@ -1,4 +1,3 @@
-const messages = require('../../scripts/messages.js')
 const main = require('../../scripts/main.js')
 const config = require('./outlineColor.spec.json')
 

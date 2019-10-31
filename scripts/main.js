@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer')
 const color = require('./color/color')
 const padding = require('./padding/padding')
+const margin = require('./margin/margin')
 const outline = require('./outline/outline')
 const border = require('./border/border')
 const font = require('./font/font')
@@ -119,11 +120,11 @@ const pixelpolice = (url, config) => {
               result = border.colorTest(el.borderLeftColor, el.borderLeftStyle, el.borderLeftWidth, config.propertyValues.borderLeftColor)
               break
 
-            case 'paddingTop':
-            case 'paddingRight':
-            case 'paddingBottom':
-            case 'paddingLeft':
-              result = padding.test(el[property], config.propertyValues[property])
+            case 'marginTop':
+            case 'marginRight':
+            case 'marginBottom':
+            case 'marginLeft':
+              result = margin.test(el[property], config.propertyValues[property])
               break
 
             case 'outlineColor':
@@ -133,6 +134,14 @@ const pixelpolice = (url, config) => {
             case 'outlineStyle':
               result = outline.styleTest(el.outlineStyle, config.propertyValues.outlineStyle)
               break
+
+            case 'paddingTop':
+            case 'paddingRight':
+            case 'paddingBottom':
+            case 'paddingLeft':
+              result = padding.test(el[property], config.propertyValues[property])
+              break
+
 
             case 'fontFamily':
               result = font.familyTest(el.fontFamily, config.propertyValues.fontFamily)

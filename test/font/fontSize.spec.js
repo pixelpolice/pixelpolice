@@ -1,5 +1,4 @@
 const main = require('../../scripts/main.js')
-const messages = require('../../scripts/messages.js')
 const config = require('./fontSize.spec.json')
 
 const testConfig = config.tests[0]
