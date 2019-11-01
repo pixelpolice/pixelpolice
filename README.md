@@ -1,6 +1,6 @@
-# pixelpolice
+# Pixel police
 
-Design token integration testing tool
+A design token integration testing tool
 
 This tool aims to do a few things
 
