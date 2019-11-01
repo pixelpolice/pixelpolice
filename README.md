@@ -1,6 +1,5 @@
 # pixelpolice
 
-
 Design token integration testing tool
 
 This tool aims to do a few things
@@ -17,45 +16,11 @@ Visual regression tests are great but they have a couple of limitations which th
 * Visual regression tests assume that what's been set as a baseline is correct
 
 
-
-## Supported CSS properties and units:
-* backgroundColor
-* borderTopColor
-* borderLeftColor
-* borderBottomColor
-* borderRightColor
-* color
-* fontSize
-* fontFamily
-* fontWeight
-* marginTop
-* marginLeft
-* marginBottom
-* marginRight
-* outlineColor
-* outlineStyle
-* paddingTop
-* paddingLeft
-* paddingBottom
-* paddingRight
-
-## Supported units
-
-hex, rgb, rgba, px
-
-note: hex colours will be converted into rgb for testing
-
-## Unsupported units
-
-rem, em, %, cm, vh, vw, vmin, vmax
-
-
 ## TODO
 
 * --urls in CLI
 * --config-url in CLI eg --url 0 for first url specified
-* messages tests
-* docs
+* docs (make responsive)
 * save scores - design debt tracker
 * rem
 * config validation messaging
