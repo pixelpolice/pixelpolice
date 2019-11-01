@@ -40,13 +40,14 @@ const fullReport = (reports, verbose) => {
   let reportMessages = ''
 
   reports.forEach((report, i) => {
+    let flag = report.totalFailedTests === 0 ? chalk.bgGreen.black(' PASS ') : chalk.bgRed.black(' FAIL ')
     if (i !== 0 && verbose) {
       reportMessages += `
 =====================================================================
 `
     }
     reportMessages += `
-${chalk.bgRed.black(' FAIL ')} ${urlViewport(report.url, report.config)}
+${flag} ${urlViewport(report.url, report.test)}
  - Number of elements tested: ${report.elementsCount}
  - ${chalk.green(`Passed tests: ${report.totalPassedTests}`)}
  - ${chalk.red(`Failed tests: ${report.totalFailedTests}`)}
@@ -54,7 +55,7 @@ ${chalk.bgRed.black(' FAIL ')} ${urlViewport(report.url, report.config)}
 
     if (verbose) {
       report.failedTests.forEach(test => {
-        reportMessages += elementFailedReport(test.identifier, test.results, report.config)
+        reportMessages += elementFailedReport(test.identifier, test.results, report.test)
       })
     }
   })

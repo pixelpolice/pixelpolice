@@ -28,13 +28,16 @@ Visual regression tests are great but they have a couple of limitations which th
 * fontSize
 * fontFamily
 * fontWeight
+* marginTop
+* marginLeft
+* marginBottom
+* marginRight
 * outlineColor
 * outlineStyle
 * paddingTop
 * paddingLeft
 * paddingBottom
 * paddingRight
-
 
 ## Supported units
 
@@ -47,7 +50,6 @@ note: hex colours will be converted into rgb for testing
 rem, em, %, cm, vh, vw, vmin, vmax
 
 
-
 ## TODO
 
 * --urls in CLI
@@ -55,7 +57,6 @@ rem, em, %, cm, vh, vw, vmin, vmax
 * messages tests
 * docs
 * save scores - design debt tracker
-* margins
 * rem
 * config validation messaging
 * --config-test-properties only run for subset of properties listed in config

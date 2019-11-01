@@ -6,7 +6,7 @@ const url = config.urls[0];
 
 const expected = {
   url: url,
-  config: testConfig,
+  test: testConfig,
   elementsCount: 8,
   totalPassedTests: 4,
   totalFailedTests: 4,
