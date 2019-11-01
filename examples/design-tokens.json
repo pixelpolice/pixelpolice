@@ -1,0 +1,34 @@
+{
+  "color": {
+    "yellow": "#F7A800",
+    "blue": "#002D73",
+    "snow": "#FAFAFA",
+    "oldSilver": "#E0E0E0",
+    "trolleyGrey": "#808080",
+    "black": "#333333"
+  },
+  "spacers": {
+    "tiny": "8px",
+    "small": "16px",
+    "medium": "24px",
+    "large": "40px",
+    "huge": "64px"
+  },
+  "font": {
+    "family": {
+      "pressStart": "\"Press Start 2P\", cursive",
+      "openSans": "\"Open Sans\", sans-serif",
+      "monospace": "\"Courier New\",Courier,monospace"
+    },
+    "weight": {
+      "regular": "400",
+      "bold": "700"
+    },
+    "tiny": "12px",
+    "standard": "16px",
+    "medium": "24px",
+    "large": "40px",
+    "huge": "64px",
+    "gargantuan": "104px"
+  }
+}

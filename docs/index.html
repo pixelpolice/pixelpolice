@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Design token integration testing | PIXEL POLICE</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --yellow: #F7A800;
+        --blue: #002D73;
+        --snow: #FAFAFA;
+        --old-silver: #E0E0E0;
+        --trolley-grey: #808080;
+        --black: #333333;
+        --spacer-tiny: 8px;
+        --spacer-small: 16px;
+        --spacer-medium: 24px;
+        --spacer-large: 40px;
+        --spacer-huge: 64px;
+        --font-tiny: 12px;
+        --font-standard: 16px;
+        --font-medium: 24px;
+        --font-large: 40px;
+        --font-huge: 64px;
+        --font-gargantuan: 104px;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-size: var(--font-standard)
+      }
+
+      body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: var(--snow);
+        color: var(--black);
+        line-height: 1.6;
+      }
+
+      section {
+        max-width: 1140px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .text-block {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .bg-blue {
+        background-color: var(--blue);
+      }
+
+      .bg-old-silver {
+        background-color: var(--old-silver);
+      }
+
+      .bg-trolley-grey{
+        background-color: var(--trolley-grey);
+      }
+
+      .color-yellow {
+        color: var(--yellow);
+      }
+
+      .padding-top-huge {
+        padding-top: var(--spacer-huge);
+      }
+
+      .padding-bottom-huge {
+        padding-bottom: var(--spacer-huge);
+      }
+
+      .padding-left-huge {
+        padding-bottom: var(--spacer-huge);
+      }
+
+      .margin-top-tiny {
+        margin-top: var(--spacer-tiny);
+      }
+
+      .margin-top-small {
+        margin-top: var(--spacer-small);
+      }
+
+      .margin-top-medium {
+        margin-top: var(--spacer-medium);
+      }
+
+      .margin-top-large {
+        margin-top: var(--spacer-large);
+      }
+
+      .margin-bottom-large {
+        margin-bottom: var(--spacer-large);
+      }
+
+      .font-family-press-start {
+        font-family: 'Press Start 2P', cursive;
+      }
+
+      pre {
+        background-color: var(--black);
+        color: var(--snow);
+        padding: var(--spacer-medium);
+        font-family: "Courier New",Courier,monospace;
+      }
+
+      .font-gargantuan {
+        font-size: var(--font-gargantuan);
+      }
+
+      .font-huge {
+        font-size: var(--font-huge);
+      }
+
+      .font-large {
+        font-size: var(--font-large);
+      }
+
+      .font-medium {
+        font-size: var(--font-medium);
+      }
+
+      .font-standard {
+        font-size: var(--font-standard);
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .btn {
+        text-decoration: none;
+        padding: 0 var(--spacer-small);
+        line-height: 48px;
+        background-color: var(--snow);
+        color: var(--black);
+        display: inline-block;
+        box-shadow: 4px 4px var(--trolley-grey);
+        font-size: var(--font-tiny);
+      }
+
+      .spots {
+        --columns: 3;
+        display: grid;
+        grid-column-gap: 64px;
+        grid-template-columns: repeat(var(--columns),1fr);
+        text-align: center;
+        list-style: none;
+      }
+
+      table {
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      th {
+        padding: var(--spacer-medium);
+      }
+
+      th {
+        border-bottom: 2px solid var(--black);
+        font-weight: 700;
+      }
+
+      tr:nth-child(even) {
+        background-color: var(--old-silver)
+      }
+
+      td {
+        padding: var(--spacer-medium);
+      }
+
+      hr {
+        height: var(--spacer-medium);
+        background-image: url(police-line.svg);
+        background-size: auto var(--spacer-medium);
+        width: 200%;
+        margin-left: -50%;
+      }
+
+      hr:nth-of-type(odd) {
+        transform: rotate(0.5deg);
+      }
+
+      hr:nth-of-type(even) {
+        transform: rotate(-0.5deg);
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <header class="text-center padding-top-huge padding-bottom-huge font-family-press-start bg-blue color-yellow">
+
+      <h1 class="font-huge">PIXEL POLICE</h1>
+      <p class="font-medium margin-top-small">A design token integration testing tool</p>
+      <p class="margin-top-large">
+        <a href="https://github.com/pixelpolice/pixelpolice" class="btn">GitHub</a>
+      </p>
+    </header>
+    <main>
+      <section class="text-block padding-top-huge padding-bottom-huge">
+        <p>Analysing a page to see if it's deviated from design tokens can be tedious and
+        time consuming. It relys on having a an excellent eye for design and
+        having the time to go through each page. As design tokens and websites evolve over time,
+        without regular reviews there's a danger that design debt can increase and ruin
+        visual consistency.</p>
+        <p class="margin-top-small">Pixel police automates this process and reports back when
+        a design token hasn't been used.</p>
+      </section>
+
+      <section class="padding-top-huge padding-bottom-huge">
+        <ul class="spots">
+          <li class="margin-top-small">If a villain has sneaked in a new background color, Pixel police will catch it.</li>
+          <li class="margin-top-small">If a bandit has missused a border, Pixel police will report it.</li>
+          <li class="margin-top-small">If a scoundrel has smuggled in a font, Pixel police will seize it.</li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <section class="padding-top-huge padding-bottom-huge">
+        <h2 class="text-center font-family-press-start font-medium margin-bottom-large">Get started</h2>
+        <p>Install<p>
+        <figure class="margin-top-tiny">
+          <pre><code>npm i pixelpolice
+</code></pre>
+        </figure>
+
+        <p class="margin-top-large">Create a config.js file and populate it with your design tokens<p>
+        <figure class="margin-top-tiny">
+          <pre><code>const tokens = require('./design-tokens')
+
+module.exports = {
+  urls: ['https://www.yourwebiste.com/', 'https://www.yourwebiste.com/page', ... ],
+  tests: [{
+    propertyValues: {
+      backgroundColor: [tokens.bgColors.light, tokens.bgColors.dark],
+      color: [tokens.colors.primary, tokens.colors.secondary],
+      fontSize: [tokens.fontSize.small, tokens.fontSize.medium, tokens.fontSize.large]
+      ...
+    }
+  }]
+}
+</code></pre>
+        </figure>
+
+        <p class="margin-top-large">Add to your package.json<p>
+        <figure class="margin-top-tiny">
+            <pre><code>"scripts": {
+    design-token-test: pixelpolice --config path/to/config.js
+    ...
+}
+  </code></pre>
+
+        </figure>
+
+        <p class="margin-top-large">Run in terminal<p>
+        <figure class="margin-top-tiny">
+          <pre><code>npm run design-token-test
+
+  _____       _     ______    __          ____________  _
+  ___________(_)__  _________/ /  _________________/ /_(_)__________
+  ___/ __ \_/ /_/ |/_// _ \_/ /   ___/ __ \/ __ \_/ /_/ /_/ ___// _ \
+  __/ /_/ // / _>  < /  __// /    __/ /_/ / /_/ // / / / / /__ /  __/
+  _/ .___//_/ /_/|_| \___//_/     _/ .___/\____//_/ /_/  \___/ \___/
+  /_/                             /_/
+
+ testing  https://www.yourwebiste.com/ @ 800 x 600
+ testing  https://www.yourwebiste.com/page @ 800 x 600
+
+█████████████████████████████████████████████████████████████████████
+
+PIXEL POLICE REPORT:
+
+ FAIL  https://www.yourwebiste.com/ @ 800 x 600
+ - Number of elements tested: 911
+ - Passed tests: 11038
+ - Failed tests: 26
+
+ FAIL  https://www.yourwebiste.com/page @ 800 x 600
+ - Number of elements tested: 999
+ - Passed tests: 15999
+ - Failed tests: 52
+
+█████████████████████████████████████████████████████████████████████
+</code></pre>
+
+        </figure>
+      </section>
+
+      <hr>
+
+      <section class="padding-top-huge padding-bottom-huge">
+        <h2 class="text-center font-family-press-start font-medium margin-bottom-large">CLI</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-c, --config</td>
+              <td>String</td>
+              <td>Path to config file</td>
+            </tr>
+            <tr>
+              <td>-v, --verbose</td>
+              <td>Boolean</td>
+              <td>Output all test data (default: false)</td>
+            </tr>
+            <tr>
+              <td>-V, --version</td>
+              <td></td>
+              <td>Output the version number</td>
+            </tr>
+            <tr>
+              <td>-h, --help</td>
+              <td></td>
+              <td>Output usage information</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <hr>
+
+      <section class="padding-top-huge padding-bottom-huge">
+        <h2 class="text-center font-family-press-start font-medium margin-bottom-large">Config</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Attribute</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>urls</td>
+              <td>Array[String]</td>
+              <td>An array of urls that you would like to run the tests against</td>
+            </tr>
+            <tr>
+              <td>tests</td>
+              <td>Array[Object]</td>
+              <td>An array of test objects</td>
+            </tr>
+            <tr>
+              <td>tests.viewports.width</td>
+              <td>Object/Number (optional)</td>
+              <td>The viewport width to test against</td>
+            </tr>
+            <tr>
+              <td>tests.viewports.height</td>
+              <td>Object/Number (optional)</td>
+              <td>The viewport height to test against</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues</td>
+              <td>Object</td>
+              <td>A map of css properies and allowed values (or tokens)</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.backgroundColor</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of background-colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.borderTopColor</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of border-top-colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.borderRightColor</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of border-right-colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.borderBottomColor</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of border-left-colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.borderLeftColor</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of border-left-colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.color</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.marginTop</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of sizes that are allowed. Supported units: px</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.marginLeft</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of sizes that are allowed. Supported units: px</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.marginBottom</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of sizes that are allowed. Supported units: px</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.marginRight</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of sizes that are allowed. Supported units: px</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.outlineColor</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of outline-colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.outlineStyle</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of outline styles that are allowed. Supported values: 'dashed', 'solid' etc</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.paddingTop</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of sizes that are allowed. Supported units: px</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.paddingLeft</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of sizes that are allowed. Supported units: px</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.paddingBottom</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of sizes that are allowed. Supported units: px</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.paddingRight</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of sizes that are allowed. Supported units: px</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.fontSize</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of sizes that are allowed. Supported units: px</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.fontFamily</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of font-family declorations that are allowed</td>
+            </tr>
+            <tr>
+              <td>tests.propertyValues.fontWeight</td>
+              <td>Array[string] (optional)</td>
+              <td>An array of font-weights that are allowed. Supported values: '100', '200', '300'</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+      <hr>
+
+      <section class="padding-top-huge padding-bottom-huge">
+        <h2 class="text-center font-family-press-start font-medium margin-bottom-large">License</h2>
+      </section>
+    </main>
+  </body>
+</html>

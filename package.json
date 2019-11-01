@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "concurrently \"npm run test:server\" \"jest --silent\" --kill-others",
-    "test:single": "concurrently \"npm run test:server\" \"jest ./test/padding.spec.js\" --kill-others",
-    "test:server": "http-server ./test --silent",
+    "test": "concurrently \"npm run server:test\" \"jest --silent\" --kill-others",
+    "test:single": "concurrently \"npm run server:test\" \"jest ./test/padding.spec.js\" --kill-others",
     "lint:js": "eslint -c config/eslint/base.json './scripts/**/*.js' --ignore-path config/eslint/.eslintignore",
     "lint:js:fix": "eslint -c config/eslint/base.json './scripts/**/*.js' --ignore-path config/eslint/.eslintignore --fix",
     "pixelpolice": "node bin/cli.js",
-    "pixelpolice:realistic": "node bin/cli.js --config ./scripts/example-config.js",
-    "pixelpolice:realistic:verbose": "node bin/cli.js --config ./scripts/example-config.js --verbose",
+    "server:test":  "http-server ./test --silent",
+    "server:docs":  "http-server ./docs --silent",
+    "pixelpolice:example": "node bin/cli.js --config ./examples/example-config.js",
+    "pixelpolice:example:verbose": "node bin/cli.js --config ./examples/example-config.js --verbose",
     "pixelpolice:single": "node bin/cli.js --config ./test/pseudo/pseudo.spec.json --verbose"
   },
   "repository": {
