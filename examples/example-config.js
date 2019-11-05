@@ -11,7 +11,7 @@ module.exports = {
     },
     propertyValues: {
       backgroundColor: [tokens.color.black, tokens.color.blue, tokens.color.snow, tokens.color.oldSilver],
-      color: [tokens.color.black, tokens.color.snow, tokens.color.yellow],
+      color: [tokens.color.black, tokens.color.snow, tokens.color.yellow, tokens.color.blue],
       paddingTop: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge],
       paddingRight: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge],
       paddingBottom: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge],
@@ -32,7 +32,7 @@ module.exports = {
     },
     propertyValues: {
       backgroundColor: [tokens.color.black, tokens.color.blue, tokens.color.snow, tokens.color.oldSilver],
-      color: [tokens.color.black, tokens.color.snow, tokens.color.yellow],
+      color: [tokens.color.black, tokens.color.snow, tokens.color.yellow, tokens.color.blue],
       paddingTop: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge],
       paddingRight: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge],
       paddingBottom: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge],
