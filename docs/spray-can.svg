@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>spray-can</title>
+    <desc>Created with Sketch.</desc>
+    <g id="spray-can" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(3.000000, 1.000000)" fill="#000000">
+            <rect id="Rectangle" x="8" y="2" width="1" height="2"></rect>
+            <rect id="Rectangle" x="6" y="2" width="1" height="1"></rect>
+            <rect id="Rectangle" x="4" y="2" width="1" height="1"></rect>
+            <rect id="Rectangle" x="2" y="1" width="1" height="1"></rect>
+            <rect id="Rectangle" x="2" y="3" width="1" height="1"></rect>
+            <rect id="Rectangle" x="0" y="0" width="1" height="1"></rect>
+            <rect id="Rectangle" x="0" y="2" width="1" height="1"></rect>
+            <rect id="Rectangle" x="0" y="4" width="1" height="1"></rect>
+            <rect id="Rectangle" x="6" y="4" width="5" height="1"></rect>
+            <rect id="Rectangle" x="5" y="5" width="1" height="1"></rect>
+            <rect id="Rectangle" x="11" y="5" width="1" height="1"></rect>
+            <rect id="Rectangle" x="4" y="6" width="9" height="2"></rect>
+            <rect id="Rectangle" x="7" y="8" width="6" height="1"></rect>
+            <rect id="Rectangle" x="4" y="18" width="9" height="3"></rect>
+            <rect id="Rectangle" x="12" y="6" width="1" height="15"></rect>
+            <rect id="Rectangle" x="4" y="6" width="3" height="15"></rect>
+            <rect id="Rectangle" x="7" y="8" width="1" height="9"></rect>
+            <rect id="Rectangle" x="7" y="17" width="6" height="1"></rect>
+        </g>
+    </g>
+</svg>
