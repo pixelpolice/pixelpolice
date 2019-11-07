@@ -19,6 +19,7 @@ Visual regression tests are great but they have a couple of limitations which th
 ## TODO
 
 * sitemap input
+* border style
 * --urls in CLI
 * --config-url in CLI eg --url 0 for first url specified
 * docs (make responsive)

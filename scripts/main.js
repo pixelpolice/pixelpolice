@@ -8,7 +8,7 @@ const font = require('./font/font')
 
 const pixelpolice = (url, test) => {
   return new Promise((resolve, reject) => {
-    const propertiesToBeTested = Object.keys(test.propertyValues)
+    const propertiesToBeTested = Object.keys(test.expectedPropertyValues)
 
     let totalPassedTests = 0
     let totalFailedTests = 0
@@ -97,62 +97,62 @@ const pixelpolice = (url, test) => {
 
           switch (property) {
             case 'color':
-              result = color.test(el[property], test.propertyValues[property])
+              result = color.test(el[property], test.expectedPropertyValues[property])
               break
 
             case 'backgroundColor':
-              result = color.test(el[property], test.propertyValues[property], true)
+              result = color.test(el[property], test.expectedPropertyValues[property], true)
               break
 
             case 'borderTopColor':
-              result = border.colorTest(el.borderTopColor, el.borderTopStyle, el.borderTopWidth, test.propertyValues.borderTopColor)
+              result = border.colorTest(el.borderTopColor, el.borderTopStyle, el.borderTopWidth, test.expectedPropertyValues.borderTopColor)
               break
 
             case 'borderRightColor':
-              result = border.colorTest(el.borderRightColor, el.borderRightStyle, el.borderRightWidth, test.propertyValues.borderRightColor)
+              result = border.colorTest(el.borderRightColor, el.borderRightStyle, el.borderRightWidth, test.expectedPropertyValues.borderRightColor)
               break
 
             case 'borderBottomColor':
-              result = border.colorTest(el.borderBottomColor, el.borderBottomStyle, el.borderBottomWidth, test.propertyValues.borderBottomColor)
+              result = border.colorTest(el.borderBottomColor, el.borderBottomStyle, el.borderBottomWidth, test.expectedPropertyValues.borderBottomColor)
               break
 
             case 'borderLeftColor':
-              result = border.colorTest(el.borderLeftColor, el.borderLeftStyle, el.borderLeftWidth, test.propertyValues.borderLeftColor)
+              result = border.colorTest(el.borderLeftColor, el.borderLeftStyle, el.borderLeftWidth, test.expectedPropertyValues.borderLeftColor)
               break
 
             case 'marginTop':
             case 'marginRight':
             case 'marginBottom':
             case 'marginLeft':
-              result = margin.test(el[property], test.propertyValues[property])
+              result = margin.test(el[property], test.expectedPropertyValues[property])
               break
 
             case 'outlineColor':
-              result = outline.colorTest(el.outlineColor, el.outlineStyle, test.propertyValues.outlineColor)
+              result = outline.colorTest(el.outlineColor, el.outlineStyle, test.expectedPropertyValues.outlineColor)
               break
 
             case 'outlineStyle':
-              result = outline.styleTest(el.outlineStyle, test.propertyValues.outlineStyle)
+              result = outline.styleTest(el.outlineStyle, test.expectedPropertyValues.outlineStyle)
               break
 
             case 'paddingTop':
             case 'paddingRight':
             case 'paddingBottom':
             case 'paddingLeft':
-              result = padding.test(el[property], test.propertyValues[property])
+              result = padding.test(el[property], test.expectedPropertyValues[property])
               break
 
 
             case 'fontFamily':
-              result = font.familyTest(el.fontFamily, test.propertyValues.fontFamily)
+              result = font.familyTest(el.fontFamily, test.expectedPropertyValues.fontFamily)
               break
 
             case 'fontSize':
-              result = font.sizeTest(el.fontSize, test.propertyValues.fontSize)
+              result = font.sizeTest(el.fontSize, test.expectedPropertyValues.fontSize)
               break
 
             case 'fontWeight':
-              result = font.weightTest(el.fontWeight, test.propertyValues.fontWeight)
+              result = font.weightTest(el.fontWeight, test.expectedPropertyValues.fontWeight)
               break
 
             default:

@@ -26,7 +26,7 @@ const elementFailedReport = (identifier, failedMessages, config) => {
     messages = messages + `${chalk.red(`
 ● Failed when testing ${chalk.bold(message.property)} property`)}
     - Observed: ${message.saw}
-    - Expected one of: ${config.propertyValues[message.property]}
+    - Expected one of: ${config.expectedPropertyValues[message.property]}
 `
   })
   return `

@@ -9,7 +9,7 @@ module.exports = {
       width: 320,
       height: 568
     },
-    propertyValues: {
+    expectedPropertyValues: {
       backgroundColor: [tokens.color.black, tokens.color.blue, tokens.color.snow, tokens.color.oldSilver],
       color: [tokens.color.black, tokens.color.snow, tokens.color.yellow, tokens.color.blue],
       paddingTop: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge],
@@ -30,7 +30,7 @@ module.exports = {
       width: 1600,
       height: 1024
     },
-    propertyValues: {
+    expectedPropertyValues: {
       backgroundColor: [tokens.color.black, tokens.color.blue, tokens.color.snow, tokens.color.oldSilver],
       color: [tokens.color.black, tokens.color.snow, tokens.color.yellow, tokens.color.blue],
       paddingTop: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge],

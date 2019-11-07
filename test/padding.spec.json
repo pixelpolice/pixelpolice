@@ -5,7 +5,7 @@
       "width": 320,
       "height": 568
     },
-    "propertyValues": {
+    "expectedPropertyValues": {
       "paddingTop": ["2px", "4px", "8px", "16px"],
       "paddingRight": ["2px", "4px", "8px", "16px"],
       "paddingBottom": ["2px", "4px", "8px", "16px"],

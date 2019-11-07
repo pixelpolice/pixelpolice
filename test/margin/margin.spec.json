@@ -5,7 +5,7 @@
       "width": 320,
       "height": 568
     },
-    "propertyValues": {
+    "expectedPropertyValues": {
       "marginTop": ["2px", "4px", "8px", "16px"],
       "marginRight": ["2px", "4px", "8px", "16px"],
       "marginBottom": ["2px", "4px", "8px", "16px"],

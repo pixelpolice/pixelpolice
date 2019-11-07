@@ -341,7 +341,7 @@
 module.exports = {
   urls: ['https://www.yourwebiste.com/', 'https://www.yourwebiste.com/page', ... ],
   tests: [{
-    propertyValues: {
+    expectedPropertyValues: {
       backgroundColor: [tokens.bgColors.light, tokens.bgColors.dark],
       color: [tokens.colors.primary, tokens.colors.secondary],
       fontSize: [tokens.fontSize.small, tokens.fontSize.medium, tokens.fontSize.large]
@@ -464,102 +464,102 @@ PIXEL POLICE REPORT:
               <td>The viewport height (in pixels) to test against. Defaults to 600</td>
             </tr>
             <tr>
-              <td>tests.propertyValues</td>
+              <td>tests.expectedPropertyValues</td>
               <td>Object</td>
               <td>A map of css properies and allowed values (or tokens)</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.backgroundColor</td>
+              <td>tests.expectedPropertyValues.backgroundColor</td>
               <td>Array[string] (optional)</td>
               <td>An array of background-colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.borderTopColor</td>
+              <td>tests.expectedPropertyValues.borderTopColor</td>
               <td>Array[string] (optional)</td>
               <td>An array of border-top-colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.borderRightColor</td>
+              <td>tests.expectedPropertyValues.borderRightColor</td>
               <td>Array[string] (optional)</td>
               <td>An array of border-right-colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.borderBottomColor</td>
+              <td>tests.expectedPropertyValues.borderBottomColor</td>
               <td>Array[string] (optional)</td>
               <td>An array of border-left-colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.borderLeftColor</td>
+              <td>tests.expectedPropertyValues.borderLeftColor</td>
               <td>Array[string] (optional)</td>
               <td>An array of border-left-colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.color</td>
+              <td>tests.expectedPropertyValues.color</td>
               <td>Array[string] (optional)</td>
               <td>An array of colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.marginTop</td>
+              <td>tests.expectedPropertyValues.marginTop</td>
               <td>Array[string] (optional)</td>
               <td>An array of sizes that are allowed. Supported units: px</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.marginLeft</td>
+              <td>tests.expectedPropertyValues.marginLeft</td>
               <td>Array[string] (optional)</td>
               <td>An array of sizes that are allowed. Supported units: px</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.marginBottom</td>
+              <td>tests.expectedPropertyValues.marginBottom</td>
               <td>Array[string] (optional)</td>
               <td>An array of sizes that are allowed. Supported units: px</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.marginRight</td>
+              <td>tests.expectedPropertyValues.marginRight</td>
               <td>Array[string] (optional)</td>
               <td>An array of sizes that are allowed. Supported units: px</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.outlineColor</td>
+              <td>tests.expectedPropertyValues.outlineColor</td>
               <td>Array[string] (optional)</td>
               <td>An array of outline-colors that are allowed. Supported units: Hex, RGB, RGBA. Hex is converted to RGB prior to testing</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.outlineStyle</td>
+              <td>tests.expectedPropertyValues.outlineStyle</td>
               <td>Array[string] (optional)</td>
               <td>An array of outline styles that are allowed. Supported values: 'dashed', 'solid' etc</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.paddingTop</td>
+              <td>tests.expectedPropertyValues.paddingTop</td>
               <td>Array[string] (optional)</td>
               <td>An array of sizes that are allowed. Supported units: px</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.paddingLeft</td>
+              <td>tests.expectedPropertyValues.paddingLeft</td>
               <td>Array[string] (optional)</td>
               <td>An array of sizes that are allowed. Supported units: px</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.paddingBottom</td>
+              <td>tests.expectedPropertyValues.paddingBottom</td>
               <td>Array[string] (optional)</td>
               <td>An array of sizes that are allowed. Supported units: px</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.paddingRight</td>
+              <td>tests.expectedPropertyValues.paddingRight</td>
               <td>Array[string] (optional)</td>
               <td>An array of sizes that are allowed. Supported units: px</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.fontSize</td>
+              <td>tests.expectedPropertyValues.fontSize</td>
               <td>Array[string] (optional)</td>
               <td>An array of sizes that are allowed. Supported units: px</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.fontFamily</td>
+              <td>tests.expectedPropertyValues.fontFamily</td>
               <td>Array[string] (optional)</td>
               <td>An array of font-family declorations that are allowed</td>
             </tr>
             <tr>
-              <td>tests.propertyValues.fontWeight</td>
+              <td>tests.expectedPropertyValues.fontWeight</td>
               <td>Array[string] (optional)</td>
               <td>An array of font-weights that are allowed. Supported values: '100', '200', '300'</td>
             </tr>

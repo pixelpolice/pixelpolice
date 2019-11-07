@@ -25,7 +25,7 @@ const validateProperties = (config) => {
   let validProperties = true
 
   config.tests.forEach(test => {
-    for (const key of Object.keys(test.propertyValues)) {
+    for (const key of Object.keys(test.expectedPropertyValues)) {
       if (allowedProperties.indexOf(key) === -1) {
         console.error(chalk.red(`Sorry pixelpolice currently is unable to test property: ${key}`))
         validProperties = false
@@ -62,9 +62,9 @@ const validatePropertyValues = (config) => {
   let validUnits = true
 
   config.tests.forEach(test => {
-    for (const key of Object.keys(test.propertyValues)) {
+    for (const key of Object.keys(test.expectedPropertyValues)) {
       if (allowedPropertiesAndUnits[key] !== undefined) {
-        test.propertyValues[key].forEach((property) => {
+        test.expectedPropertyValues[key].forEach((property) => {
           currentTest = allowedPropertiesAndUnits[key].test(property)
 
           if (currentTest === false) {
