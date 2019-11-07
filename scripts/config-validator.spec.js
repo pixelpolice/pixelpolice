@@ -4,7 +4,7 @@ describe('configValidator', () => {
   test('validator fails for disallowed properties', () => {
     const config = {
       tests: [{
-        propertyValues: {
+        expectedPropertyValues: {
           abc: ''
         }
       }]
@@ -15,7 +15,7 @@ describe('configValidator', () => {
   test('validator passes with allowed units', () => {
     const config = {
       tests: [{
-        propertyValues: {
+        expectedPropertyValues: {
           paddingTop: ['1234px', '123px', '12px', '1px']
         }
       }]
@@ -26,7 +26,7 @@ describe('configValidator', () => {
   test('validator fails for disallowed units', () => {
     const config = {
       tests: [{
-        propertyValues: {
+        expectedPropertyValues: {
           paddingTop: ['1234vh', '123px', '12px', '1px']
         }
       }]
@@ -37,7 +37,7 @@ describe('configValidator', () => {
   test('validator passes with allowed hex colors', () => {
     const config = {
       tests: [{
-        propertyValues: {
+        expectedPropertyValues: {
           color: ['#000', '#000000', '#000a', '#000000aa']
         }
       }]
@@ -48,7 +48,7 @@ describe('configValidator', () => {
   test('validator passes with allowed transparent color', () => {
     const config = {
       tests: [{
-        propertyValues: {
+        expectedPropertyValues: {
           color: ['transparent']
         }
       }]
@@ -59,7 +59,7 @@ describe('configValidator', () => {
   test('validator passes with allowed rgb and rgba colors', () => {
     const config = {
       tests: [{
-        propertyValues: {
+        expectedPropertyValues: {
           color: ['rgb(0, 0, 0)', 'rgba(0, 0, 0, a)']
         }
       }]
@@ -70,7 +70,7 @@ describe('configValidator', () => {
   test('validator fails for disallowed hsl colors', () => {
     const config = {
       tests: [{
-        propertyValues: {
+        expectedPropertyValues: {
           color: ['hsl(120, 100%, 50%)', 'hsla(120, 100%, 50%, 0.3)']
         }
       }]
@@ -81,7 +81,7 @@ describe('configValidator', () => {
   test('validator fails for disallowed named colors', () => {
     const config = {
       tests: [{
-        propertyValues: {
+        expectedPropertyValues: {
           color: ['red']
         }
       }]
@@ -92,7 +92,7 @@ describe('configValidator', () => {
   test('validator passes for outlineColor used with outlineStyle', () => {
     const config = {
       tests: [{
-        propertyValues: {
+        expectedPropertyValues: {
           outlineColor: ['#000000'],
           outlineStyle: ['solid']
         }
@@ -104,7 +104,7 @@ describe('configValidator', () => {
   test('validator fails for outlineColor used without outlineStyle', () => {
     const config = {
       tests: [{
-        propertyValues: {
+        expectedPropertyValues: {
           outlineColor: ['red']
         }
       }]
@@ -115,7 +115,7 @@ describe('configValidator', () => {
   test('validator passes for fontWeight defined with numbers', () => {
     const config = {
       tests: [{
-        propertyValues: {
+        expectedPropertyValues: {
           fontWeight: ['900']
         }
       }]
@@ -126,7 +126,7 @@ describe('configValidator', () => {
   test('validator fails for fontWeight defined with names', () => {
     const config = {
       tests: [{
-        propertyValues: {
+        expectedPropertyValues: {
           fontWeight: ['bold']
         }
       }]

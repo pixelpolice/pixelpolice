@@ -8,7 +8,7 @@ const config = {
       width: 123,
       height: 456
     },
-    propertyValues: {
+    expectedPropertyValues: {
       color: ['#000000', '#FFFFFF']
     }
   },
@@ -17,7 +17,7 @@ const config = {
       width: 345,
       height: 678
     },
-    propertyValues: {
+    expectedPropertyValues: {
       color: ['#000000', '#FFFFFF']
     }
   }]
