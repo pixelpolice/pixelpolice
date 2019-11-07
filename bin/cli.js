@@ -6,10 +6,10 @@ const program = require('commander');
 const appRoot = require('app-root-path')
 const packageJSON = require(path.join('..', 'package'))
 
-const main = require('../scripts/main')
-const messages = require('../scripts/messages')
-const configValidator = require('../scripts/config-validator.js')
-const color = require('../scripts/color/color')
+const main = require('../src/scripts/main')
+const messages = require('../src/scripts/messages')
+const configValidator = require('../src/scripts/config-validator.js')
+const color = require('../src/scripts/color/color')
 
 const commaSeparatedList = value => {
   return value.split(',');

@@ -1,4 +1,4 @@
-const main = require('../../scripts/main.js')
+const main = require('../../src/scripts/main.js')
 const config = require('./margin.spec.json')
 
 const testConfig = config.tests[0]
