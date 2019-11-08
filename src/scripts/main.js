@@ -142,7 +142,6 @@ const pixelpolice = (url, test) => {
               result = padding.test(el[property], test.expectedPropertyValues[property])
               break
 
-
             case 'fontFamily':
               result = font.familyTest(el.fontFamily, test.expectedPropertyValues.fontFamily)
               break

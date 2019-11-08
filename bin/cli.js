@@ -26,7 +26,8 @@ program
 if (program.config) {
   console.log(messages.logo());
 
-  const config = require(path.resolve(program.config))
+  const configPath = path.resolve('./examples/example-config.js')
+  const config = require(configPath)
   const pixelpoliceTests = []
   const colourPropertiesToRGBA = [
     'color',

@@ -1,27 +1,13 @@
 const chalk = require('chalk')
+const properties = require('../data/properties')
 
 const validateProperties = (config) => {
-  const allowedProperties = [
-    'backgroundColor',
-    'borderTopColor',
-    'borderLeftColor',
-    'borderBottomColor',
-    'borderRightColor',
-    'color',
-    'marginTop',
-    'marginLeft',
-    'marginBottom',
-    'marginRight',
-    'outlineColor',
-    'outlineStyle',
-    'paddingTop',
-    'paddingLeft',
-    'paddingBottom',
-    'paddingRight',
-    'fontSize',
-    'fontFamily',
-    'fontWeight'
-  ]
+  const allowedProperties = []
+
+  properties.forEach(property => {
+    allowedProperties.push(property.name)
+  })
+
   let validProperties = true
 
   config.tests.forEach(test => {

@@ -40,7 +40,7 @@ const fullReport = (reports, verbose) => {
   let reportMessages = ''
 
   reports.forEach((report, i) => {
-    let flag = report.totalFailedTests === 0 ? chalk.bgGreen.black(' PASS ') : chalk.bgRed.black(' FAIL ')
+    const flag = report.totalFailedTests === 0 ? chalk.bgGreen.black(' PASS ') : chalk.bgRed.black(' FAIL ')
     if (i !== 0 && verbose) {
       reportMessages += `
 =====================================================================

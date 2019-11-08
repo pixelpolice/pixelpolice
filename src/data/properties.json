@@ -1,0 +1,125 @@
+[
+  {
+    "name": "backgroundColor",
+    "description": "An array of background-colors that are allowed.",
+    "supported": ["hex", "rgb", "rgba"],
+    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "borderTopColor",
+    "description": "An array of border-top-colors that are allowed.",
+    "supported": ["hex", "rgb", "rgba"],
+    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "borderLeftColor",
+    "description": "An array of border-right-colors that are allowed.",
+    "supported": ["hex", "rgb", "rgba"],
+    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "borderBottomColor",
+    "description": "An array of border-left-colors that are allowed.",
+    "supported": ["hex", "rgb", "rgba"],
+    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "borderRightColor",
+    "description": "An array of border-left-colors that are allowed.",
+    "supported": ["hex", "rgb", "rgba"],
+    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "color",
+    "description": "An array of colors that are allowed.",
+    "supported": ["hex", "rgb", "rgba"],
+    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "marginTop",
+    "description": "An array of sizes that are allowed.",
+    "supported": ["px"],
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "marginLeft",
+    "description": "An array of sizes that are allowed.",
+    "supported": ["px"],
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "marginBottom",
+    "description": "An array of sizes that are allowed.",
+    "supported": ["px"],
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "marginRight",
+    "description": "An array of sizes that are allowed.",
+    "supported": ["px"],
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "outlineColor",
+    "description": "An array of outline-colors that are allowed",
+    "supported": ["hex", "rgb", "rgba"],
+    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "outlineStyle",
+    "description": "An array of outline styles that are allowed.",
+    "supported": ["string"],
+    "supportedInfo": "Supports: 'dashed', 'solid' etc",
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "paddingTop",
+    "description": "An array of padding sizes that are allowed",
+    "supported": ["px"],
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "paddingLeft",
+    "description": "An array of padding sizes that are allowed",
+    "supported": ["px"],
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "paddingBottom",
+    "description": "An array of padding sizes that are allowed",
+    "supported": ["px"],
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "paddingRight",
+    "description": "An array of padding sizes that are allowed",
+    "supported": ["px"],
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "fontSize",
+    "description": "An array of sizes that are allowed",
+    "supported": ["px"],
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "fontFamily",
+    "description": "An array of font-family declorations that are allowed",
+    "supported": ["string"],
+    "type": "Array[string](optional)"
+  },
+  {
+    "name": "fontWeight",
+    "description": "An array of font-weights that are allowed.",
+    "supported": ["numbersAsString"],
+    "supportedInfo": ["Supports '100', '200', '300' etc, not bold, bolsder"],
+    "type": "Array[string](optional)"
+  }
+]

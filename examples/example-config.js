@@ -1,7 +1,5 @@
 const tokens = require('./design-tokens')
 
-console.log(tokens.fonts)
-
 module.exports = {
   urls: ['http://localhost:8080/index.html'],
   tests: [{

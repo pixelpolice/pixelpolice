@@ -30,19 +30,19 @@ const reports = [{
   totalPassedTests: 6,
   totalFailedTests: 7,
   failedTests: [{
-    "identifier": "<p id=\"hex-fail\">hex-fail</p>",
-    "results": [{
-      "property": "color",
-      "saw": "rgb(18, 52, 86)"
+    identifier: '<p id="hex-fail">hex-fail</p>',
+    results: [{
+      property: 'color',
+      saw: 'rgb(18, 52, 86)'
     }]
-  },{
-    "identifier": "<p id=\"rgb-fail\">rgb-fail</p>",
-    "results": [{
-      "property": "color",
-      "saw": "rgb(12, 34, 56)"
+  }, {
+    identifier: '<p id="rgb-fail">rgb-fail</p>',
+    results: [{
+      property: 'color',
+      saw: 'rgb(12, 34, 56)'
     }]
   }]
-},{
+}, {
   url: config.urls[0],
   test: config.tests[1],
   elementsCount: 10,
@@ -50,7 +50,6 @@ const reports = [{
   totalFailedTests: 0,
   failedTests: []
 }]
-
 
 describe('messages', () => {
   test('returns correct logo', () => {
@@ -67,7 +66,7 @@ describe('messages', () => {
   })
 
   test('returns the correct test being run message', () => {
-    const expected = chalk.black.bgRgb(247, 168, 0)(' testing ') + " abcd.co.uk @ 123 x 456"
+    const expected = chalk.black.bgRgb(247, 168, 0)(' testing ') + ' abcd.co.uk @ 123 x 456'
 
     expect(messages.testBeingRun(config.urls[0], config.tests[0])).toBe(expected)
   })
@@ -81,13 +80,13 @@ ${chalk.bold('PIXEL POLICE REPORT:')}
 
 ${chalk.bgRed.black(' FAIL ')} abcd.co.uk @ 123 x 456
  - Number of elements tested: 5
- - ${chalk.green(`Passed tests: 6`)}
- - ${chalk.red(`Failed tests: 7`)}
+ - ${chalk.green('Passed tests: 6')}
+ - ${chalk.red('Failed tests: 7')}
 
 ${chalk.bgGreen.black(' PASS ')} abcd.co.uk @ 345 x 678
  - Number of elements tested: 10
- - ${chalk.green(`Passed tests: 20`)}
- - ${chalk.red(`Failed tests: 0`)}
+ - ${chalk.green('Passed tests: 20')}
+ - ${chalk.red('Failed tests: 0')}
 
 █████████████████████████████████████████████████████████████████████
 `
@@ -104,8 +103,8 @@ ${chalk.bold('PIXEL POLICE REPORT:')}
 
 ${chalk.bgRed.black(' FAIL ')} abcd.co.uk @ 123 x 456
  - Number of elements tested: 5
- - ${chalk.green(`Passed tests: 6`)}
- - ${chalk.red(`Failed tests: 7`)}
+ - ${chalk.green('Passed tests: 6')}
+ - ${chalk.red('Failed tests: 7')}
 
 ---------------------------------------------------------------------
 
@@ -127,14 +126,12 @@ ${chalk.red(`
 
 ${chalk.bgGreen.black(' PASS ')} abcd.co.uk @ 345 x 678
  - Number of elements tested: 10
- - ${chalk.green(`Passed tests: 20`)}
- - ${chalk.red(`Failed tests: 0`)}
+ - ${chalk.green('Passed tests: 20')}
+ - ${chalk.red('Failed tests: 0')}
 
 █████████████████████████████████████████████████████████████████████
 `
 
     expect(messages.fullReport(reports, verbose)).toBe(expected)
   })
-
-
 })
