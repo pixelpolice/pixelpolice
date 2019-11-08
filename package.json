@@ -6,11 +6,12 @@
   "scripts": {
     "test": "concurrently \"npm run server:test\" \"jest --silent\" --kill-others",
     "test:single": "concurrently \"npm run server:test\" \"jest ./test/padding.spec.js\" --kill-others",
+    "build:docs": "node ./src/docs/build-docs.js",
     "lint:js": "eslint -c config/eslint/base.json './src/**/*.js' --ignore-path config/eslint/.eslintignore",
     "lint:js:fix": "eslint -c config/eslint/base.json './src/**/*.js' --ignore-path config/eslint/.eslintignore --fix",
     "pixelpolice": "node bin/cli.js",
-    "server:test":  "http-server ./test --silent",
-    "server:docs":  "http-server ./docs --silent",
+    "server:test": "http-server ./test --silent",
+    "server:docs": "http-server ./docs --silent",
     "pixelpolice:example": "node bin/cli.js --config ./examples/example-config.js",
     "pixelpolice:example:verbose": "node bin/cli.js --config ./examples/example-config.js --verbose",
     "pixelpolice:single": "node bin/cli.js --config ./test/pseudo/pseudo.spec.json --verbose"
@@ -43,7 +44,9 @@
     "eslint-plugin-node": "10.0.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
+    "handlebars": "^4.5.1",
     "http-server": "^0.11.1",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "pug": "^2.0.4"
   }
 }

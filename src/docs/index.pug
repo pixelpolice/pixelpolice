@@ -1,0 +1,192 @@
+doctype html
+html(lang="en" dir="ltr")
+  head
+    meta(charset="utf-8")
+    title Design token integration testing | PIXEL POLICE
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Press+Start+2P&display=swap" rel="stylesheet")
+
+    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-151713957-1")
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-151713957-1');
+      
+    style
+      include style.css
+  body
+    header.text-center.padding-top-huge.padding-bottom-huge.font-family-press-start.bg-blue.color-yellow
+      <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 48"><g fill="none" fill-rule="evenodd"><g fill="#02183D"><path d="M0 38h41v1H0zM1 39h38v1H1zM3 40h34v1H3zM5 41h30v1H5zM7 42h26v1H7zM9 43h22v1H9zM11 44h18v1H11zM13 45h14v1H13zM15 46h10v1H15zM17 47h6v1h-6zM0 37h43v1H0zM0 36h45v1H0zM1 35h46v1H1zM3 34h46v1H3zM5 33h46v1H5zM7 32h46v1H7zM9 31h46v1H9zM11 30h46v1H11zM13 29h46v1H13zM15 28h46v1H15zM17 27h46v1H17zM19 26h45v1H19zM21 25h43v1H21zM23 24h41v1H23zM25 23h38v1H25zM27 22h34v1H27zM29 21h30v1H29zM31 20h26v1H31zM33 19h22v1H33zM35 18h18v1H35zM37 17h14v1H37zM39 16h10v1H39zM41 15h6v1h-6z"/></g><path fill="#000" d="M15 14h1v1h-1zM18 11h1v1h-1zM19 10h1v1h-1zM20 9h1v1h-1zM21 8h1v1h-1zM22 7h1v1h-1zM23 6h1v1h-1zM24 6h1v1h-1zM25 5h1v1h-1zM26 5h1v1h-1zM27 4h1v1h-1zM28 4h1v1h-1zM31 2h1v1h-1zM32 2h1v1h-1zM33 1h1v1h-1zM34 1h1v1h-1zM35 0h1v1h-1zM36 0h1v1h-1zM58 11h1v1h-1zM57 10h1v1h-1zM56 9h1v1h-1zM55 8h1v1h-1zM54 7h1v1h-1zM53 7h1v1h-1zM52 6h1v1h-1zM51 6h1v1h-1zM50 5h1v1h-1zM49 5h1v1h-1zM48 4h1v1h-1zM47 4h1v1h-1zM46 3h1v1h-1zM45 3h1v1h-1zM44 2h1v1h-1zM43 2h1v1h-1zM42 1h1v1h-1zM41 1h1v1h-1zM40 0h1v1h-1zM39 0h1v1h-1zM38 0h1v1h-1zM37 0h1v1h-1zM16 13h1v1h-1zM17 12h1v1h-1z"/><path fill="#FAFAFA" d="M45 4h2v9h-2zM43 3h2v11h-2zM41 2h2v13h-2zM39 1h2v15h-2zM37 1h2v14h-2zM35 1h2v13h-2zM33 2h2v11h-2zM31 3h2v9h-2zM29 4h2v7h-2zM27 5h2v5h-2zM25 6h2v3h-2zM23 7h2v1h-2zM22 8h1v1h-1zM21 9h1v1h-1zM20 10h1v1h-1zM19 11h1v1h-1zM18 12h1v1h-1zM17 13h1v1h-1zM16 14h1v1h-1zM15 15h1v1h-1zM47 5h2v7h-2zM49 6h2v5h-2zM51 7h2v3h-2zM53 8h1v2h-1zM54 8h1v3h-1zM55 9h1v3h-1zM56 10h1v2h-1zM57 11h1v1h-1zM56 12h3v3h-3zM38 17h1v1h-1zM39 16h1v1h-1zM38 18h1v1h-1zM37 19h1v1h-1zM37 20h1v1h-1zM36 21h1v1h-1zM36 22h1v1h-1zM35 23h1v2h-1zM35 25h2v2h-2zM37 24h2v2h-2zM39 23h2v2h-2zM41 22h2v2h-2zM43 21h2v2h-2zM45 20h2v2h-2zM47 19h2v2h-2zM49 18h2v2h-2zM51 17h2v2h-2zM53 16h2v2h-2zM55 15h2v1h-2z"/><path fill="#000" d="M30 2h2v1h-2zM29 3h1v2h-1zM30 5h2v1h-2zM36 6h1v1h-1zM39 8h1v1h-1zM43 11h1v1h-1zM32 6h2v1h-2zM34 7h2v1h-2zM36 8h2v1h-2zM38 9h2v1h-2zM40 10h2v1h-2zM44 12h2v1h-2zM46 10h1v2h-1zM42 8h2v1h-2zM40 7h2v1h-2zM38 6h2v1h-2zM36 5h2v1h-2zM34 4h2v1h-2zM32 3h2v1h-2zM44 9h2v1h-2zM42 11h1v1h-1z"/><path fill="#FB000D" d="M30 3h2v2h-2zM32 4h2v2h-2zM34 5h2v2h-2z"/><path fill="#0148B8" d="M40 8h2v2h-2zM42 9h2v2h-2zM44 10h2v2h-2z"/><path fill="#000" d="M31 2h2v1h-2z"/><g><path fill="#000" d="M16 16h1v1h-1zM17 17h1v1h-1zM18 17h1v1h-1zM19 18h1v1h-1zM20 18h1v1h-1zM21 19h1v1h-1zM22 19h1v1h-1zM23 20h1v1h-1zM24 20h1v1h-1zM25 21h1v1h-1zM26 21h1v1h-1zM27 22h1v1h-1zM28 22h1v1h-1zM29 23h1v1h-1zM30 23h1v1h-1zM31 24h1v1h-1zM32 24h1v1h-1zM16 15h1v1h-1zM19 12h1v1h-1zM20 11h1v1h-1zM21 10h1v1h-1zM22 9h1v1h-1zM23 8h1v1h-1zM24 8h1v1h-1zM25 9h1v1h-1zM26 9h1v1h-1zM27 10h1v1h-1zM28 10h1v1h-1zM29 11h1v1h-1zM30 11h1v1h-1zM31 12h1v1h-1zM32 12h1v1h-1zM33 13h1v1h-1zM34 13h1v1h-1zM35 14h1v1h-1zM36 14h1v1h-1zM37 15h1v1h-1zM17 14h1v1h-1zM18 13h1v1h-1zM33 24h1v1h-1zM34 24h1v1h-1zM34 23h1v1h-1zM35 22h1v1h-1zM35 21h1v1h-1zM36 20h1v1h-1zM36 19h1v1h-1zM37 18h1v1h-1zM37 17h1v1h-1zM38 16h1v1h-1zM38 15h1v1h-1z"/><path fill="#122E34" d="M23 9h2v1h-2zM22 10h5v1h-5zM21 11h8v1h-8zM20 12h11v1H20zM19 13h14v1H19zM18 14h17v1H18zM17 15h20v1H17zM21 16h17v1H21zM23 17h14v1H23zM25 18h12v1H25zM27 19h9v1h-9zM29 20h7v1h-7zM31 21h4v1h-4zM33 22h2v1h-2z"/><path fill="#2A6775" d="M31 23h3v1h-3zM29 22h4v1h-4zM25 20h4v1h-4zM23 19h4v1h-4zM21 18h4v1h-4zM19 17h4v1h-4zM17 16h4v1h-4zM27 21h4v1h-4z"/></g><g><path fill="#000" d="M36 24h1v1h-1zM37 23h1v1h-1zM38 23h1v1h-1zM39 22h1v1h-1z"/><path fill="#2A6775" d="M38 22h1v1h-1z"/><path fill="#122E34" d="M38 21h1v1h-1zM39 20h2v1h-2zM39 19h4v1h-4zM40 18h5v1h-5zM40 17h6v1h-6zM41 16h5v1h-5zM43 15h3v1h-3zM45 14h1v1h-1zM47 16h2v1h-2zM47 15h4v1h-4zM47 14h6v1h-6zM47 13h7v1h-7zM49 12h6v1h-6zM51 11h3v1h-3z"/><path fill="#2A6775" d="M39 21h1v1h-1zM40 21h1v1h-1zM41 20h1v1h-1zM42 20h1v1h-1zM43 19h1v1h-1zM44 19h1v1h-1zM45 18h1v1h-1zM47 17h1v1h-1zM48 17h1v1h-1zM49 16h1v1h-1zM50 16h1v1h-1zM51 15h1v1h-1zM52 15h1v1h-1zM53 14h1v1h-1zM54 14h1v1h-1zM54 13h1v1h-1z"/><path fill="#000" d="M40 22h1v1h-1zM41 21h1v1h-1zM42 21h1v1h-1zM43 20h1v1h-1zM44 20h1v1h-1zM45 19h1v1h-1zM46 19h1v1h-1zM47 18h1v1h-1zM48 18h1v1h-1zM49 17h1v1h-1zM50 17h1v1h-1zM51 16h1v1h-1zM52 16h1v1h-1zM53 15h1v1h-1zM54 15h1v1h-1zM55 14h1v1h-1zM55 13h1v1h-1zM53 10h1v1h-1zM55 12h1v1h-1zM54 11h1v1h-1zM36 23h1v1h-1zM37 22h1v1h-1zM37 21h1v1h-1zM38 20h1v1h-1zM38 19h1v1h-1zM39 18h1v1h-1zM39 17h1v1h-1zM40 16h1v1h-1zM41 15h1v1h-1zM42 15h1v1h-1zM43 14h1v1h-1zM44 14h1v1h-1zM45 13h1v1h-1zM46 13h1v1h-1zM46 14h1v1h-1zM46 15h1v1h-1zM46 16h1v1h-1zM46 17h1v1h-1zM46 18h1v1h-1zM47 12h1v1h-1zM48 12h1v1h-1zM49 11h1v1h-1zM50 11h1v1h-1zM51 10h1v1h-1zM52 10h1v1h-1z"/></g><g><path fill="#000" d="M0 34h1v1H0zM0 30h1v1H0zM20 43h1v1h-1zM21 43h1v1h-1zM22 43h1v1h-1zM23 42h1v1h-1zM24 42h1v1h-1zM25 41h1v1h-1zM26 41h1v1h-1zM35 36h1v1h-1zM36 36h1v1h-1zM37 35h1v1h-1zM38 35h1v1h-1zM39 34h1v1h-1zM40 34h1v1h-1zM41 33h1v1h-1zM42 33h1v1h-1zM63 22h1v1h-1zM65 21h1v1h-1zM64 22h1v1h-1zM65 20h1v1h-1zM51 28h1v1h-1zM52 28h1v1h-1zM53 27h1v1h-1zM43 32h1v1h-1zM44 32h1v1h-1zM45 31h1v1h-1zM46 31h1v1h-1zM47 30h1v1h-1zM48 30h1v1h-1zM49 29h1v1h-1zM50 29h1v1h-1zM1 35h1v1H1zM2 35h1v1H2zM16 42h1v1h-1zM17 43h1v1h-1zM18 43h1v1h-1zM19 43h1v1h-1z"/><path fill="#D8D8D8" d="M55 16h1v1h-1zM56 16h1v1h-1z"/><path fill="#000" d="M63 14h1v1h-1zM64 15h1v1h-1zM65 17h1v1h-1zM65 16h1v1h-1zM65 19h1v1h-1zM65 18h1v1h-1zM0 23h1v1H0zM0 24h1v1H0zM0 22h1v1H0zM1 21h1v1H1zM2 21h1v1H2zM3 20h1v1H3zM4 20h1v1H4zM5 19h1v1H5zM6 19h1v1H6zM7 18h1v1H7zM8 18h1v1H8zM9 17h1v1H9zM10 17h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM43 1h1v1h-1zM44 1h1v1h-1z"/><path fill="#D8D8D8" d="M22 33h1v1h-1zM23 32h1v1h-1zM24 32h1v1h-1zM25 31h1v1h-1zM26 31h1v1h-1zM27 30h1v1h-1zM28 30h1v1h-1zM29 29h1v1h-1zM30 29h1v1h-1zM31 28h1v1h-1zM32 28h1v1h-1zM33 27h1v1h-1zM34 27h1v1h-1zM59 14h1v1h-1zM60 14h1v1h-1zM61 13h1v1h-1z"/><path fill="#EAEAEA" d="M36 27h17v1H36zM37 26h17v1H37zM39 25h15v1H39zM41 24h13v1H41zM43 23h11v1H43zM45 22h10v1H45zM47 21h8v1h-8zM49 20h6v1h-6zM51 19h4v1h-4zM53 18h2v1h-2zM36 28h15v1H36zM36 29h13v1H36zM36 30h11v1H36zM36 31h9v1h-9zM36 32h7v1h-7zM36 33h5v1h-5zM36 34h3v1h-3zM36 35h1v1h-1z"/><path fill="#D8D8D8" d="M62 13h1v1h-1z"/><path fill="#000" d="M63 12h1v1h-1zM63 11h1v1h-1zM63 10h1v1h-1zM63 13h1v1h-1z"/><path fill="#D8D8D8" d="M57 15h1v1h-1zM58 15h1v1h-1z"/><path fill="#000" d="M62 9h1v1h-1zM45 1h1v1h-1zM46 1h1v1h-1zM47 2h1v1h-1zM48 2h1v1h-1zM49 3h1v1h-1zM50 3h1v1h-1zM51 4h1v1h-1zM52 4h1v1h-1zM53 5h1v1h-1zM54 5h1v1h-1zM55 6h1v1h-1zM56 6h1v1h-1zM57 7h1v1h-1zM58 7h1v1h-1zM59 8h1v1h-1zM60 8h1v1h-1zM61 9h1v1h-1z"/><path fill="#0A1338" d="M1 24h30v1H1z"/><path fill="#002D73" d="M1 24h30v1H1zM1 23h28v1H1zM1 22h26v1H1zM3 21h22v1H3zM5 20h18v1H5zM7 19h14v1H7zM9 18h10v1H9zM11 17h6v1h-6zM13 16h3v1h-3zM45 2h2v1h-2zM47 3h2v1h-2zM49 4h2v1h-2zM51 5h2v1h-2zM53 6h2v1h-2zM55 7h2v1h-2zM56 8h3v1h-3zM57 9h4v1h-4zM58 10h5v1h-5zM59 11h4v1h-4zM59 12h4v1h-4zM59 13h2v1h-2zM55 16h2v1h-2zM57 15h2v1h-2zM59 14h2v1h-2zM61 13h2v1h-2zM3 25h32v1H3zM6 26h29v1H6zM7 27h28v1H7zM9 28h24v1H9zM11 29h20v1H11zM14 30h15v1H14zM15 31h12v1H15zM16 32h9v1h-9zM22 33h2v1h-2z"/><path fill="#00145A" d="M33 28h2v1h-2zM35 27h1v9h-1zM57 16h8v1h-8zM55 17h10v1H55zM55 18h10v1H55zM55 19h2v1h-2zM55 20h1v1h-1zM61 19h4v1h-4zM62 20h3v1h-3zM63 21h2v1h-2zM59 15h5v1h-5zM61 14h2v1h-2zM31 29h4v1h-4zM29 30h6v1h-6zM27 31h8v1h-8zM25 32h10v1H25zM24 33h5v1h-5zM23 34h5v1h-5zM23 35h4v1h-4zM23 36h4v1h-4zM22 37h4v1h-4zM15 38h11v1H15zM19 39h7v1h-7zM20 40h6v1h-6zM19 41h6v1h-6zM17 42h6v1h-6zM33 33h2v1h-2zM34 34h1v1h-1zM15 41h1v1h-1zM15 39h1v1h-1zM15 37h2v1h-2zM11 36h2v4h-2zM9 35h2v4H9zM7 34h2v4H7zM11 32h2v2h-2zM9 31h2v2H9zM7 30h2v2H7zM6 29h1v2H6zM6 33h1v4H6zM3 31h1v5H3zM3 27h1v3H3zM2 30h1v2H2zM2 33h1v2H2zM1 34h1v1H1zM1 30h1v1H1zM15 33h1v3h-1z"/></g><g><path fill="#000" d="M2 29h1v1H2zM6 31h1v2H6zM7 32h2v2H7zM9 33h2v2H9zM11 34h2v2h-2zM15 36h1v1h-1zM16 36h1v1h-1zM17 37h1v1h-1zM16 35h1v1h-1zM16 34h1v1h-1zM16 33h1v1h-1zM18 37h1v1h-1zM19 37h1v1h-1zM20 37h1v1h-1zM21 37h1v1h-1zM22 36h1v1h-1zM22 35h1v1h-1zM22 34h1v1h-1zM21 33h1v1h-1zM20 33h1v1h-1zM19 33h1v1h-1zM18 33h1v1h-1zM17 33h1v1h-1zM15 32h1v1h-1zM9 29h2v2H9zM7 28h2v2H7zM6 27h1v2H6zM4 26h1v1H4zM3 26h1v1H3zM11 30h2v2h-2zM2 26h1v1H2zM2 27h1v1H2zM2 28h1v1H2zM2 25h1v1H2zM1 25h1v1H1zM0 25h1v1H0zM0 26h1v1H0zM0 27h1v1H0zM0 28h1v1H0zM0 29h1v1H0zM0 31h1v1H0zM0 32h1v1H0zM1 31h1v1H1zM2 32h1v1H2zM3 30h1v1H3zM17 39h1v1h-1zM18 39h1v1h-1zM19 40h1v1h-1zM18 41h1v1h-1zM17 41h1v1h-1zM15 40h1v1h-1zM16 39h1v1h-1zM16 41h1v1h-1z"/><path fill="#000" d="M17 41h1v1h-1zM15 42h1v1h-1zM14 31h1v12h-1zM13 30h1v12h-1zM5 26h1v12H5zM4 26h1v11H4zM12 40h1v1h-1zM11 40h1v1h-1zM10 39h1v1h-1zM9 39h1v1H9zM8 38h1v1H8zM7 38h1v1H7zM6 37h1v1H6zM3 36h1v1H3zM1 33h1v1H1zM0 33h1v1H0zM1 29h1v1H1z"/><path fill="#FAFAFA" d="M17 34h5v3h-5zM16 40h3v1h-3zM1 32h1v1H1zM1 26h1v3H1z"/></g><g><path fill="#000" d="M57 19h1v1h-1zM58 19h1v1h-1zM59 19h1v1h-1zM60 19h1v1h-1zM61 20h1v1h-1zM62 21h1v1h-1zM62 22h1v1h-1zM62 23h1v1h-1zM62 24h1v1h-1zM62 25h1v1h-1zM61 26h1v1h-1zM61 27h1v1h-1zM60 28h1v1h-1zM59 29h1v1h-1zM58 29h1v1h-1zM57 29h1v1h-1zM56 29h1v1h-1zM55 28h1v1h-1zM54 27h1v1h-1zM54 26h1v1h-1zM54 25h1v1h-1zM54 24h1v1h-1zM54 23h1v1h-1zM55 22h1v1h-1zM56 22h1v1h-1zM56 21h1v1h-1zM57 21h1v1h-1zM57 20h1v1h-1zM58 20h1v1h-1zM59 20h1v1h-1zM60 20h1v1h-1zM60 21h1v1h-1zM61 21h1v1h-1zM61 22h1v1h-1zM61 23h1v1h-1zM61 24h1v1h-1zM61 25h1v1h-1zM60 25h1v1h-1zM60 26h1v1h-1zM60 27h1v1h-1zM59 27h1v1h-1zM59 28h1v1h-1zM58 28h1v1h-1zM57 28h1v1h-1zM56 28h1v1h-1zM56 27h1v1h-1zM55 27h1v1h-1zM55 26h1v1h-1zM55 25h1v1h-1zM55 24h1v1h-1zM55 23h1v1h-1zM56 23h1v1h-1zM55 21h1v1h-1zM56 20h1v1h-1z"/><path fill="#646464" d="M58 21h2v6h-2zM56 24h2v3h-2zM57 22h1v2h-1zM57 27h2v1h-2zM60 22h1v3h-1z"/></g><g><path fill="#000" d="M29 33h1v1h-1zM30 33h1v1h-1zM31 33h1v1h-1zM32 33h1v1h-1zM33 34h1v1h-1zM34 35h1v1h-1zM34 36h1v1h-1zM34 37h1v1h-1zM34 38h1v1h-1zM34 39h1v1h-1zM33 40h1v1h-1zM33 41h1v1h-1zM32 42h1v1h-1zM31 43h1v1h-1zM30 43h1v1h-1zM29 43h1v1h-1zM28 43h1v1h-1zM27 42h1v1h-1zM26 41h1v1h-1zM26 40h1v1h-1zM26 39h1v1h-1zM26 38h1v1h-1zM26 37h1v1h-1zM27 36h1v1h-1zM28 36h1v1h-1zM28 35h1v1h-1zM29 35h1v1h-1zM29 34h1v1h-1zM30 34h1v1h-1zM31 34h1v1h-1zM32 34h1v1h-1zM32 35h1v1h-1zM33 35h1v1h-1zM33 36h1v1h-1zM33 37h1v1h-1zM33 38h1v1h-1zM33 39h1v1h-1zM32 39h1v1h-1zM32 40h1v1h-1zM32 41h1v1h-1zM31 41h1v1h-1zM31 42h1v1h-1zM30 42h1v1h-1zM29 42h1v1h-1zM28 42h1v1h-1zM28 41h1v1h-1zM27 41h1v1h-1zM27 40h1v1h-1zM27 39h1v1h-1zM27 38h1v1h-1zM27 37h1v1h-1zM28 37h1v1h-1zM27 35h1v1h-1zM28 34h1v1h-1z"/><path fill="#646464" d="M30 35h2v6h-2zM28 38h2v3h-2zM29 36h1v2h-1zM29 41h2v1h-2zM32 36h1v3h-1z"/></g></g></svg>
+      
+      h1.heading PIXEL POLICE !
+      p.sub-heading.margin-top-small A design token integration testing tool
+      p.margin-top-large
+        a(href="https://github.com/pixelpolice/pixelpolice").github GITHUB
+
+    main
+      div.intro
+        section.font-family-press-start.padding-top-huge.padding-bottom-huge.intro__content
+          div.intro__text-block
+            p Pixel Police makes it easy to check if pages on your website are using design tokens as you intended.
+            p.margin-top-small You tell it what your design tokens are and which css properties they can
+              be used on, and Pixel Police will let you know what crimes have been committed.
+          div.intro__text-block
+            p Pixel Police will let you know if:
+            ul.font-tiny
+              li.media-object.margin-top-small
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  class="media-object__img"><g fill-rule="evenodd"><path d="M10 6h2V4h-2z"/><path d="M11 4h3v1h-3zM11 3h2v1h-2zM6 15h2v3H6zM8 12h1v3H8z"/><path d="M7 12h2v3H7zM8 9h2v3H8zM9 6h2v3H9zM8 15h7v1H8zM12 20h9v1h-9z"/><path d="M15 17h4v4h-4z"/><path d="M14 14h4v4h-4z"/><path d="M13 11h4v4h-4z"/><path d="M12 8h4v4h-4z"/><path d="M11 5h4v4h-4zM5 18h2v3H5z"/><path d="M3 20h6v1H3z"/></g></svg>
+                span.media-object__text A vandal defaces a page with the wrong font
+              li.media-object.margin-top-small
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="media-object__img"><g fill-rule="evenodd"><path d="M11 3h1v2h-1zM9 3h1v1H9zM7 3h1v1H7zM5 2h1v1H5zM5 4h1v1H5zM3 1h1v1H3zM3 3h1v1H3zM3 5h1v1H3zM9 5h5v1H9zM8 6h1v1H8zM14 6h1v1h-1zM7 7h9v2H7zM10 9h6v1h-6zM7 19h9v3H7z"/><path d="M15 7h1v15h-1zM7 7h3v15H7zM10 9h1v9h-1z"/><path d="M10 18h6v1h-6z"/></g></svg>
+                span.media-object__text A shady suspect uses an illegal color
+              li.media-object.margin-top-small
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="media-object__img"><g fill-rule="evenodd"><path d="M5 2h4v2H5zM5 19h4v2H5zM10 19h4v2h-4zM15 19h4v2h-4zM10 2h4v2h-4v-.88642252zM15 2h4v2h-4v-.88642252zM20 2h2v4h-2zM2 2h2v4H2zM2 7h2v4H2zM2 12h2v4H2zM2 17h2v4H2zM20 17h2v4h-2zM20 12h2v4h-2zM20 7h2v4h-2z"/></g></svg>
+                span.media-object__text A smuggler dashes along a border
+                
+      section.padding-top-huge.padding-bottom-huge
+        h2.text-center.font-family-press-start.font-medium.margin-bottom-large Let's get started
+
+        p Install
+        figure.margin-top-tiny
+          pre
+            code npm i pixelpolice
+
+        p.margin-top-large Create a config.js file and populate it with your design tokens
+        figure.margin-top-tiny
+          pre
+           code.
+              const tokens = require('./design-tokens')
+              module.exports = {
+                urls: ['https://www.yourwebiste.com/', 'https://www.yourwebiste.com/page', ... ],
+                tests: [{
+                  expectedPropertyValues: {
+                    backgroundColor: [tokens.bgColors.light, tokens.bgColors.dark],
+                    color: [tokens.colors.primary, tokens.colors.secondary],
+                    fontSize: [tokens.fontSize.small, tokens.fontSize.medium, tokens.fontSize.large]
+                    ...
+                  }
+                }]
+              }
+
+        p.margin-top-large Add to your package.json
+        figure.margin-top-tiny
+          pre
+            code.
+              "scripts": {
+                design-token-test: pixelpolice --config path/to/config.js
+              }
+
+        p.margin-top-large Run in terminal
+        figure.margin-top-tiny
+          pre
+            code. 
+              $ npm run design-token-test
+
+              <div class="terminal-logo">  _____       _     ______    __          ____________  _
+              ___________(_)__  _________/ /  _________________/ /_(_)__________
+              ___/ __ \_/ /_/ |/_// _ \_/ /   ___/ __ \/ __ \_/ /_/ /_/ ___// _ \
+              __/ /_/ // / _>  < /  __// /    __/ /_/ / /_/ // / / / / /__ /  __/
+              _/ .___//_/ /_/|_| \___//_/     _/ .___/\____//_/ /_/  \___/ \___/
+              /_/                             /_/</div>
+
+              testing  https://www.yourwebiste.com/ @ 800 x 600
+              testing  https://www.yourwebiste.com/page @ 800 x 600
+
+              █████████████████████████████████████████████████████████████████████
+
+              PIXEL POLICE REPORT:
+
+              FAIL  https://www.yourwebiste.com/ @ 800 x 600
+              - Number of elements tested: 911
+              - Passed tests: 11038
+              - Failed tests: 26
+
+              FAIL  https://www.yourwebiste.com/page @ 800 x 600
+              - Number of elements tested: 999
+              - Passed tests: 15999
+              - Failed tests: 52
+
+              █████████████████████████████████████████████████████████████████████
+        
+      hr
+
+      section.padding-top-huge.padding-bottom-huge
+        h2.text-center.font-family-press-start.font-medium.margin-bottom-large CLI
+
+        table
+          thead
+            tr
+              th Option
+              th Description
+          tbody
+            tr
+              td -c, --config
+              td Path to config file
+            tr
+              td -v, --verbose
+              td Output all test data (default: false)
+            tr
+              td -V, --version
+              td Output the version number
+            tr
+              td -h, --help
+              td Output usage information
+      
+      hr
+      
+      section.padding-top-huge.padding-bottom-huge
+        h2.text-center.font-family-press-start.font-medium.margin-bottom-large Config
+
+        table
+          thead
+            tr
+              th Attribute
+              th Type
+              th Description
+          tbody
+            tr
+              td urls
+              td Array[String]
+              td An array of urls that you would like to run the tests against
+            tr
+              td tests
+              td Array[Object]
+              td An array of test objects
+            tr
+              td tests.viewports.width
+              td Object/Number (optional)
+              td The viewport width (in pixels) to test against. Defaults to 800
+            tr
+              td tests.viewports.height
+              td Object/Number (optional)
+              td The viewport height (in pixels) to test against. Defaults to 600
+            tr
+              td tests.expectedPropertyValues
+              td Object
+              td A map of css properies and allowed values (or tokens)</td>
+              
+        h3.font-medium.margin-top-large.margin-bottom-large tests.expectedPropertyValues[Object]
+
+        table
+          thead
+            tr
+              th Attribute
+              th Type
+              th Suppoorted values / units
+              
+          tbody
+            each property in properties
+              tr
+                td #{property.name}
+                td #{property.type}
+                - var supports = property.supported.join(', ')
+                if property.supportedInfo
+                  td  #{supports} - #{property.supportedInfo}
+                else
+                  td  #{supports}
+
+      section.padding-top-huge.padding-bottom-huge
+        h2.text-center.font-family-press-start.font-standard.margin-bottom-medium License
+        p.text-center
+         a(href="https://github.com/pixelpolice/pixelpolice/blob/master/LICENSE") MIT
