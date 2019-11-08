@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "concurrently \"npm run server:test\" \"jest --silent\" --kill-others",
-    "test:single": "concurrently \"npm run server:test\" \"jest ./test/padding.spec.js\" --kill-others",
+    "test:single": "concurrently \"npm run server:test\" \"jest ./test/border/borderStyle.spec.js\" --kill-others",
     "build:docs": "node ./src/docs/build-docs.js",
     "lint:js": "eslint -c config/eslint/base.json './src/**/*.js' --ignore-path config/eslint/.eslintignore",
     "lint:js:fix": "eslint -c config/eslint/base.json './src/**/*.js' --ignore-path config/eslint/.eslintignore --fix",
@@ -14,7 +14,7 @@
     "server:docs": "http-server ./docs --silent",
     "pixelpolice:example": "node bin/cli.js --config ./examples/example-config.js",
     "pixelpolice:example:verbose": "node bin/cli.js --config ./examples/example-config.js --verbose",
-    "pixelpolice:single": "node bin/cli.js --config ./test/pseudo/pseudo.spec.json --verbose"
+    "pixelpolice:single": "node bin/cli.js --config ./test/border/borderStyle.spec.json --verbose"
   },
   "repository": {
     "type": "git",

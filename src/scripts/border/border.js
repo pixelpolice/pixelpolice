@@ -1,33 +1,54 @@
 const color = require('../color/color')
 
+const borderNotShown = (computedBorderStyle, computedBorderWidth) => {
+  if ((computedBorderStyle === 'none') || (computedBorderWidth === '0px')) { // border only shows if computedBorderStyle and computedBorderWidth has been set
+    return true
+  }
+  return false
+}
+
 const colorTest = (computedBorderColor, computedBorderStyle, computedBorderWidth, allowedBorderColorValues) => {
+  if (borderNotShown(computedBorderStyle, computedBorderWidth)) {
+    return true
+  }
+
+  return color.test(computedBorderColor, allowedBorderColorValues, true)
+}
+
+const styleTest = (computedBorderStyle, computedBorderWidth, allowedBorderStyleValues) => {
   let testPassed = false
 
-  if ((computedBorderStyle === 'none') && (computedBorderWidth = '0px')) { // computedBorderColor only shows if computedBorderStyle and computedBorderWidth has been set
-    testPassed = true
-  } else {
-    testPassed = color.test(computedBorderColor, allowedBorderColorValues, true)
+  if (borderNotShown(computedBorderStyle, computedBorderWidth)) {
+    return true
   }
+
+  allowedBorderStyleValues.forEach(allowedBorderStyle => {
+    if (allowedBorderStyle === computedBorderStyle) {
+      testPassed = true
+    }
+  })
 
   return testPassed
 }
 
-// const styleTest = (computedBorderStyle, allowedOutlineStyleValues) => {
-//   let testPassed = false
-//
-//   if (computedBorderStyle === 'none') { // coputedStyle defaults to 0px when no padding is defined
-//     testPassed = true
-//   } else {
-//     allowedOutlineStyleValues.forEach((allowedOutlineStyle) => {
-//       if (allowedOutlineStyle === computedBorderStyle) {
-//         testPassed = true
-//       }
-//     })
-//   }
-//
-//   return testPassed
-// }
+const widthTest = (computedBorderWidth, computedBorderStyle, allowedBorderWidthValues) => {
+  let testPassed = false
+
+  if (borderNotShown(computedBorderStyle, computedBorderWidth)) {
+    return true
+  }
+
+  allowedBorderWidthValues.forEach(allowedBorderWidth => {
+    if (allowedBorderWidth === computedBorderWidth) {
+      testPassed = true
+    }
+  })
+
+  return testPassed
+}
 
 module.exports = {
-  colorTest
+  colorTest,
+  styleTest,
+  widthTest
 }

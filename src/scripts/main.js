@@ -63,6 +63,34 @@ const pixelpolice = (url, test) => {
             computedStylesTrimmed.borderLeftWidth = allComputedStyles.borderLeftWidth
           }
 
+          // borderStyle needs borderWidth to be tested
+          if (propertiesToBeTested.indexOf('borderTopStyle') !== -1) {
+            computedStylesTrimmed.borderTopWidth = allComputedStyles.borderTopWidth
+          }
+          if (propertiesToBeTested.indexOf('borderRightStyle') !== -1) {
+            computedStylesTrimmed.borderRightWidth = allComputedStyles.borderRightWidth
+          }
+          if (propertiesToBeTested.indexOf('borderBottomStyle') !== -1) {
+            computedStylesTrimmed.borderBottomWidth = allComputedStyles.borderBottomWidth
+          }
+          if (propertiesToBeTested.indexOf('borderLeftStyle') !== -1) {
+            computedStylesTrimmed.borderLeftWidth = allComputedStyles.borderLeftWidth
+          }
+
+          //  borderWidth needs borderStyle to be tested
+          if (propertiesToBeTested.indexOf('borderTopWidth') !== -1) {
+            computedStylesTrimmed.borderTopStyle = allComputedStyles.borderTopStyle
+          }
+          if (propertiesToBeTested.indexOf('borderRightWidth') !== -1) {
+            computedStylesTrimmed.borderRightStyle = allComputedStyles.borderRightStyle
+          }
+          if (propertiesToBeTested.indexOf('borderBottomWidth') !== -1) {
+            computedStylesTrimmed.borderBottomStyle = allComputedStyles.borderBottomStyle
+          }
+          if (propertiesToBeTested.indexOf('borderLeftWidth') !== -1) {
+            computedStylesTrimmed.borderLeftStyle = allComputedStyles.borderLeftStyle
+          }
+
           report.push(computedStylesTrimmed)
         }
 
@@ -118,6 +146,38 @@ const pixelpolice = (url, test) => {
 
             case 'borderLeftColor':
               result = border.colorTest(el.borderLeftColor, el.borderLeftStyle, el.borderLeftWidth, test.expectedPropertyValues.borderLeftColor)
+              break
+
+            case 'borderTopStyle':
+              result = border.styleTest(el.borderTopStyle, el.borderTopWidth, test.expectedPropertyValues.borderTopStyle)
+              break
+
+            case 'borderRightStyle':
+              result = border.styleTest(el.borderRightStyle, el.borderRightWidth, test.expectedPropertyValues.borderRightStyle)
+              break
+
+            case 'borderBottomStyle':
+              result = border.styleTest(el.borderBottomStyle, el.borderBottomWidth, test.expectedPropertyValues.borderBottomStyle)
+              break
+
+            case 'borderLeftStyle':
+              result = border.styleTest(el.borderLeftStyle, el.borderLeftWidth, test.expectedPropertyValues.borderLeftStyle)
+              break
+
+            case 'borderTopWidth':
+              result = border.widthTest(el.borderTopWidth, el.borderTopStyle, test.expectedPropertyValues.borderTopWidth)
+              break
+
+            case 'borderRightWidth':
+              result = border.widthTest(el.borderRightWidth, el.borderRightStyle, test.expectedPropertyValues.borderRightWidth)
+              break
+
+            case 'borderBottomWidth':
+              result = border.widthTest(el.borderBottomWidth, el.borderBottomStyle, test.expectedPropertyValues.borderBottomWidth)
+              break
+
+            case 'borderLeftWidth':
+              result = border.widthTest(el.borderLeftWidth, el.borderLeftStyle, test.expectedPropertyValues.borderLeftWidth)
               break
 
             case 'marginTop':

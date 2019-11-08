@@ -1,0 +1,15 @@
+{
+  "urls": ["http://localhost:8080/border/borderStyle.spec.html"],
+  "tests": [{
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "expectedPropertyValues": {
+      "borderTopStyle": ["dashed"],
+      "borderRightStyle": ["dashed"],
+      "borderBottomStyle": ["dashed"],
+      "borderLeftStyle": ["dashed"]
+    }
+  }]
+}

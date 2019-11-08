@@ -1,0 +1,15 @@
+{
+  "urls": ["http://localhost:8080/border/borderWidth.spec.html"],
+  "tests": [{
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "expectedPropertyValues": {
+      "borderTopWidth": ["20px"],
+      "borderRightWidth": ["20px"],
+      "borderBottomWidth": ["20px"],
+      "borderLeftWidth": ["20px"]
+    }
+  }]
+}

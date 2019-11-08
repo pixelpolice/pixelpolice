@@ -35,6 +35,58 @@
     "type": "Array[string] (optional)"
   },
   {
+    "name": "borderTopStyle",
+    "description": "Border-top-styles that are allowed.",
+    "supported": ["string"],
+    "supportedInfo": "e.g. 'solid', 'dashed', dotted etc",
+    "type": "Array[string] (optional)"
+  },
+  {
+    "name": "borderLeftStyle",
+    "description": "Border-right-styles that are allowed.",
+    "supported": ["string"],
+    "supportedInfo": "e.g. 'solid', 'dashed', dotted etc",
+    "type": "Array[string] (optional)"
+  },
+  {
+    "name": "borderBottomStyle",
+    "description": "Border-left-styles that are allowed.",
+    "supported": ["string"],
+    "supportedInfo": "e.g. 'solid', 'dashed', dotted etc",
+    "type": "Array[string] (optional)"
+  },
+  {
+    "name": "borderRightStyle",
+    "description": "Border-left-styles that are allowed.",
+    "supported": ["string"],
+    "supportedInfo": "e.g. 'solid', 'dashed', dotted etc",
+    "type": "Array[string] (optional)"
+  },
+  {
+    "name": "borderTopWidth",
+    "description": "Border-top-widths that are allowed.",
+    "supported": ["px"],
+    "type": "Array[string] (optional)"
+  },
+  {
+    "name": "borderLeftWidth",
+    "description": "Border-right-widths that are allowed.",
+    "supported": ["px"],
+    "type": "Array[string] (optional)"
+  },
+  {
+    "name": "borderBottomWidth",
+    "description": "Border-left-widths that are allowed.",
+    "supported": ["px"],
+    "type": "Array[string] (optional)"
+  },
+  {
+    "name": "borderRightWidth",
+    "description": "Border-left-widths that are allowed.",
+    "supported": ["px"],
+    "type": "Array[string] (optional)"
+  },
+  {
     "name": "color",
     "description": "Colors that are allowed.",
     "supported": ["hex", "rgb", "rgba"],
