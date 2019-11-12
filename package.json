@@ -15,7 +15,8 @@
     "pixelpolice:example": "node bin/cli.js --config ./examples/example-config.js",
     "pixelpolice:example:verbose": "node bin/cli.js --config ./examples/example-config.js --verbose",
     "pixelpolice:single": "node bin/cli.js --config ./test/border/borderStyle.spec.json --verbose",
-    "version": "npm run build:docs && git add docs"
+    "version": "npm run build:docs && git add docs",
+    "release": "np"
   },
   "repository": {
     "type": "git",
