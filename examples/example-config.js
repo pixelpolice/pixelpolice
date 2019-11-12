@@ -1,7 +1,7 @@
 const tokens = require('./design-tokens')
 
 module.exports = {
-  urls: ['http://localhost:8080/index.html'],
+  urls: ['https://pixelpolice.github.io/pixelpolice'],
   tests: [{
     viewport: {
       width: 320,
