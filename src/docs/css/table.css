@@ -1,0 +1,32 @@
+table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0;
+  min-width: 560px;
+}
+
+th {
+  padding: var(--spacer-medium);
+}
+
+th {
+  border-bottom: 2px solid var(--black);
+  font-weight: 700;
+}
+
+tr:nth-child(even) {
+  background-color: var(--old-silver)
+}
+
+td {
+  padding: var(--spacer-medium);
+}
+
+td:last-of-type {
+  min-width: 280px;
+}
+
+.table-wrapper {
+  overflow-x: scroll;
+}

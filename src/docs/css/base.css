@@ -1,0 +1,41 @@
+:root {
+  --yellow: #F7A800;
+  --blue: #002D73;
+  --snow: #FAFAFA;
+  --old-silver: #E0E0E0;
+  --trolley-grey: #808080;
+  --black: #222222;
+  --spacer-tiny: 8px;
+  --spacer-small: 16px;
+  --spacer-medium: 24px;
+  --spacer-large: 40px;
+  --spacer-huge: 64px;
+  --spacer-gargantuan: 104px;
+  --font-tiny: 12px;
+  --font-standard: 16px;
+  --font-medium: 24px;
+  --font-large: 40px;
+  --font-huge: 64px;
+  --font-gargantuan: 104px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+svg {
+  fill: currentColor;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  font-weight: 700;
+  color: var(--blue);
+}

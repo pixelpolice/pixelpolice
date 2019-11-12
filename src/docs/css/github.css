@@ -1,0 +1,13 @@
+.github {
+  text-decoration: none;
+  padding: 0 var(--spacer-small);
+  height: 48px;
+  color: var(--snow);
+  font-size: var(--font-tiny);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

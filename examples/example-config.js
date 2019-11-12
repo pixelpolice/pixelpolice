@@ -38,7 +38,10 @@ module.exports = {
       marginTop: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge],
       marginRight: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge],
       marginBottom: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge],
-      marginLeft: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge]
+      marginLeft: [tokens.spacers.tiny, tokens.spacers.small, tokens.spacers.medium, tokens.spacers.large, tokens.spacers.huge],
+      fontWeight: [tokens.font.weight.regular, tokens.font.weight.bold],
+      fontSize: [tokens.font.tiny, tokens.font.standard, tokens.font.medium, tokens.font.large, tokens.font.huge, tokens.font.gargantuan],
+      fontFamily: [tokens.font.family.pressStart, tokens.font.family.openSans, tokens.font.family.monospace ]
     }
   }]
 }

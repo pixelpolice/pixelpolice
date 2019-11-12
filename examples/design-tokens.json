@@ -18,7 +18,7 @@
     "family": {
       "pressStart": "\"Press Start 2P\", cursive",
       "openSans": "\"Open Sans\", sans-serif",
-      "monospace": "\"Courier New\",Courier,monospace"
+      "monospace": "\"Courier New\", Courier, monospace"
     },
     "weight": {
       "regular": "400",

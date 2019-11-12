@@ -1,0 +1,79 @@
+.font-family-press-start {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.font-tiny {
+  font-size: var(--font-tiny);
+}
+
+.font-gargantuan {
+  font-size: var(--font-gargantuan);
+}
+
+.font-large {
+  font-size: var(--font-large);
+}
+
+.font-medium {
+  font-size: var(--font-medium);
+}
+
+.font-standard {
+  font-size: var(--font-standard);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg-black {
+  background-color: var(--black);
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}
+
+.bg-old-silver {
+  background-color: var(--old-silver);
+}
+
+.bg-trolley-grey{
+  background-color: var(--trolley-grey);
+}
+
+.color-yellow {
+  color: var(--yellow);
+}
+
+.padding-top-huge {
+  padding-top: var(--spacer-huge);
+}
+
+.padding-bottom-huge {
+  padding-bottom: var(--spacer-huge);
+}
+
+.padding-left-huge {
+  padding-bottom: var(--spacer-huge);
+}
+
+.margin-top-tiny {
+  margin-top: var(--spacer-tiny);
+}
+
+.margin-top-small {
+  margin-top: var(--spacer-small);
+}
+
+.margin-top-medium {
+  margin-top: var(--spacer-medium);
+}
+
+.margin-top-large {
+  margin-top: var(--spacer-large);
+}
+
+.margin-bottom-large {
+  margin-bottom: var(--spacer-large);
+}

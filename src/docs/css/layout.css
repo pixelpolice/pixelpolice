@@ -1,0 +1,44 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--font-standard);
+  background-color: var(--snow);
+  color: var(--black);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.page-block {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacer-small);
+  padding-right: var(--spacer-small);
+  padding-top: var(--spacer-large);
+  padding-bottom: var(--spacer-large);
+}
+
+@media (min-width: 760px) {
+  .page-block {
+    padding-left: var(--spacer-medium);
+    padding-right: var(--spacer-medium);
+    padding-top: var(--spacer-huge);
+    padding-bottom: var(--spacer-huge);
+  }
+}
+
+
+/* calc(1140px + var(--spacer-medium) + var(--spacer-medium)) */
+@media (min-width: 1188px) {
+  .page-block {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+hr {
+  height: var(--spacer-medium);
+  background-image: url(police-line.svg);
+  background-size: auto var(--spacer-medium);
+  width: 100%;
+  border: none;
+}

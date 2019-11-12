@@ -1,0 +1,18 @@
+.heading {
+  font-size: var(--font-large);
+  word-spacing: calc(-1 * var(--spacer-medium));
+  letter-spacing: 4px;
+  text-shadow: 4px 4px #000, 8px 8px #000;
+}
+
+@media (min-width: 560px) {
+  .heading {
+    font-size: var(--font-huge);
+    word-spacing: calc(-1 * var(--spacer-large));
+  }
+}
+
+.sub-heading {
+  text-shadow: 4px 4px #000;
+  font-size: var(--font-medium);
+}

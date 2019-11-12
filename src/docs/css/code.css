@@ -1,0 +1,15 @@
+pre {
+  background-color: var(--black);
+  color: var(--snow);
+  padding: var(--spacer-medium);
+  overflow-x: scroll;
+}
+
+pre,
+code {
+  font-family: "Courier New",Courier,monospace;
+}
+
+.terminal-logo {
+  display: inline-block;
+}

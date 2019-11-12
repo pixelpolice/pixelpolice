@@ -1,0 +1,11 @@
+.media-object {
+  display: flex;
+  align-items: flex-start;
+}
+
+.media-object__img {
+  flex: none;
+  margin-right: var(--spacer-small);
+  width: var(--spacer-large);
+  height: var(--spacer-large);
+}
