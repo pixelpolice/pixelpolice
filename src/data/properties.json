@@ -2,36 +2,36 @@
   {
     "name": "backgroundColor",
     "description": "Background-colors that are allowed.",
-    "supported": ["hex", "rgb", "rgba"],
-    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "supported": ["hex", "rgb", "hsl", "transparent"],
+    "supportedInfo": "Colors are converted to RGB prior to testing.",
     "type": "Array[string] (optional)"
   },
   {
     "name": "borderTopColor",
     "description": "Border-top-colors that are allowed.",
-    "supported": ["hex", "rgb", "rgba"],
-    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "supported": ["hex", "rgb", "hsl", "transparent"],
+    "supportedInfo": "Colors are converted to RGB prior to testing.",
     "type": "Array[string] (optional)"
   },
   {
     "name": "borderLeftColor",
     "description": "Border-right-colors that are allowed.",
-    "supported": ["hex", "rgb", "rgba"],
-    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "supported": ["hex", "rgb", "hsl", "transparent"],
+    "supportedInfo": "Colors are converted to RGB prior to testing.",
     "type": "Array[string] (optional)"
   },
   {
     "name": "borderBottomColor",
     "description": "Border-left-colors that are allowed.",
-    "supported": ["hex", "rgb", "rgba"],
-    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "supported": ["hex", "rgb", "hsl", "transparent"],
+    "supportedInfo": "Colors are converted to RGB prior to testing.",
     "type": "Array[string] (optional)"
   },
   {
     "name": "borderRightColor",
     "description": "Border-left-colors that are allowed.",
-    "supported": ["hex", "rgb", "rgba"],
-    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "supported": ["hex", "rgb", "hsl", "transparent"],
+    "supportedInfo": "Colors are converted to RGB prior to testing.",
     "type": "Array[string] (optional)"
   },
   {
@@ -89,8 +89,8 @@
   {
     "name": "color",
     "description": "Colors that are allowed.",
-    "supported": ["hex", "rgb", "rgba"],
-    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "supported": ["hex", "rgb", "hsl", "transparent"],
+    "supportedInfo": "Colors are converted to RGB prior to testing.",
     "type": "Array[string] (optional)"
   },
   {
@@ -120,8 +120,8 @@
   {
     "name": "outlineColor",
     "description": "Outline-colors that are allowed",
-    "supported": ["hex", "rgb", "rgba"],
-    "supportedInfo": "Hex is converted to RGB prior to testing.",
+    "supported": ["hex", "rgb", "hsl", "transparent"],
+    "supportedInfo": "Colors are converted to RGB prior to testing.",
     "type": "Array[string] (optional)"
   },
   {
