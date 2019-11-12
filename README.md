@@ -1,5 +1,3 @@
-> NOTE: this is currently a work in progress
-
 # Pixel police
 
 A design token integration testing tool
@@ -19,12 +17,12 @@ When defining design tokens there are usually CSS properties that they are inten
 As Pixel police cannot tell between the types of deviations, it's helpful to think of it as an automated design review - a conversation starter not a build breaker.
 
 
-## Things I'm think of doing:
+## Things I'm thinking of doing:
 
 * sitemap input
 * --urls in CLI
-* save scores as JSON - design debt tracker
-* rem
+* design debt tracker - save scores as JSON file
+* rem support
 * config validation messaging
 * --config-test-properties only run for subset of properties listed in config
 * docs favicon
