@@ -1,9 +1,9 @@
-var rgb = require("rgb")
+var rgb = require('rgb')
 
 const configToRGBA = (colorArr) => {
   const convertedColors = []
   colorArr.forEach(color => {
-    convertedColors.push(rgb(color).replace(/\,/g, ', '))
+    convertedColors.push(rgb(color).replace(/,/g, ', '))
   })
   return convertedColors
 }
