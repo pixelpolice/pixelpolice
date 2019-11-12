@@ -2,7 +2,7 @@
 
 A design token integration testing tool
 
-# Why
+## Why
 
 Design tokens are the core of what makes your brand look like your brand. A lot of effort goes in to defining what these should be, but unfortunately deviations happen:
 
@@ -17,6 +17,9 @@ When defining design tokens there are usually CSS properties that they are inten
 As Pixel police cannot tell between the types of deviations, it's helpful to think of it as an automated design review - a conversation starter not a build breaker.
 
 
+View docs - https://pixelpolice.github.io/pixelpolice
+
+
 ## Things I'm thinking of doing:
 
 * sitemap input
@@ -26,3 +29,4 @@ As Pixel police cannot tell between the types of deviations, it's helpful to thi
 * config validation messaging
 * --config-test-properties only run for subset of properties listed in config
 * docs favicon
+* selector option - you don't need to test your nav on every page

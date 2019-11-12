@@ -67,7 +67,7 @@ describe('configValidator', () => {
     expect(configValidator.check(config)).toBeTruthy()
   })
 
-  test('validator fails for disallowed hsl colors', () => {
+  test('validator fails for allowed hsl and hsla colors', () => {
     const config = {
       tests: [{
         expectedPropertyValues: {
@@ -75,7 +75,7 @@ describe('configValidator', () => {
         }
       }]
     }
-    expect(configValidator.check(config)).toBeFalsy()
+    expect(configValidator.check(config)).toBeTruthy()
   })
 
   test('validator fails for disallowed named colors', () => {

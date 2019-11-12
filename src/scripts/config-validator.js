@@ -27,7 +27,9 @@ const validatePropertyValues = (config) => {
     // singleLowerCaseWord: /^[a-z]*/,
     singleNumber: /^[0-9]*$/,
     px: /\d*\.?\d+px/,
-    color: /^#([A-Fa-f0-9]{3,4}){1,2}$|^rgb\(|^rgba\(|(transparent)/
+    // color: /^#([A-Fa-f0-9]{3,4}){1,2}$|^rgb\(|^rgba\(|(transparent)/
+    color: /^#([A-Fa-f0-9]{3,4}){1,2}$|^rgb\(|^rgba\(|^hsl\(|^hsla\(|(transparent)/
+
   }
   const allowedPropertiesAndUnits = {
     backgroundColor: units.color,
