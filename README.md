@@ -12,7 +12,7 @@ Design tokens are the core of what makes your brand look like your brand. A lot 
 
 Finding these deviations can be be difficult and hard to manage. Over time these deviations increase design debt, increase the amount of work required to remedy, and can potentially ruin the consistency of your brand.
 
-When defining design tokens there are usually CSS properties that they are intended to be used with: eg a background colour design token should only be used on the background-color css property. Pixel police was build to automate this process and make it easy to spot deviations.
+When defining design tokens there are usually CSS properties that they are intended to be used with: eg a background colour design token should only be used on the background-color css property. Pixel police was built to automate this process and make it easy to spot deviations.
 
 As Pixel police cannot tell between the types of deviations, it's helpful to think of it as an automated design review - a conversation starter not a build breaker.
 
